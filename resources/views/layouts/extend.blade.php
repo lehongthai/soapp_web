@@ -442,7 +442,9 @@
             <link href='{{url('')}}/public/assets/is-keywords-module4565.css?1476608156115' rel='stylesheet' type='text/css' />
             <div class="is-keywords-module"></div>
             <footer id="footer">
-
+            <?php 
+                $shop = DB::table('shop')->first();
+            ?>
                 <div class="container">
 
                     <!-- Footer Widgets
