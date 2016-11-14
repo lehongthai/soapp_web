@@ -15,7 +15,7 @@ class ImageController extends Controller {
 	}
 	public function getBannerBelow()
 	{
-		$data = Image::select('id', 'image_thumb', 'name', 'text')->where('name', 'bannerBelow')->first();
+		$data = Image::select('id', 'image_thumb', 'name', 'content')->where('name', 'bannerBelow')->first();
 		return view('admin.images.list', compact('data'));
 	}
 	public function getIcon()
@@ -29,7 +29,11 @@ class ImageController extends Controller {
 		return view('admin.images.list', compact('data'));
 	}
 
-	
+	public function getPhone()
+	{
+		$data = Image::select('id', 'image_thumb', 'name')->where('name', 'phone')->first();
+		return view('admin.images.list', compact('data'));
+	}
 
 	public function getEdit($id=0)
 	{
@@ -51,8 +55,8 @@ class ImageController extends Controller {
 		if ($images) {
 			$image_arr = explode('/', $request->images);
 			$count = count($image_arr);	
-			if (isset($request->txtText) && $request->txtText != NULL) {
-				$images->text = $request->txtText;
+			if (isset($request->txtContent) && $request->txtContent != NULL) {
+				$images->content = $request->txtContent;
 			}
 
 			$images->alt = $request->txtAltImage;
@@ -74,6 +78,8 @@ class ImageController extends Controller {
 			return redirect()->route('admin.image.getIcon')->with($message);
 		}elseif ($images->name == 'logo') {
 			return redirect()->route('admin.image.getLogo')->with($message);
+		}elseif ($images->name == 'phone') {
+			return redirect()->route('admin.image.getPhone')->with($message);
 		}
 		
 	}

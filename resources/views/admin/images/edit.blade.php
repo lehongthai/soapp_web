@@ -7,8 +7,9 @@
         <input type="hidden" name="id" value="{!! $data['id'] !!}">
         @if($data['name'] == 'bannerBelow')
             <div class="form-group">
-                <label>Chú Thích</label>
-                <input class="form-control" name="txtText" placeholder="Nhập chú thích" value="{!! old('txtText', $data['text']) !!}" />
+                <label>Nội Dung</label>
+                <textarea class="form-control" rows="3" name="txtContent">{!! old('txtContent', $data['content']) !!}</textarea>
+                                <script type="text/javascript">ckeditor('txtContent')</script>
             </div>
         @endif()
             <div class="form-group">
