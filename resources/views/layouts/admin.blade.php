@@ -130,6 +130,24 @@
                             <!-- /.child_menu -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-drivers-license"></i>Banner<span class="fa arrow"></span></a>
+                            <ul class="nav child_menu">
+                                <li>
+                                    <a href="{!! URL::route('admin.image.getBannerAbove') !!}">Banner Trên</a>
+                                </li>
+                                <li>
+                                    <a href="{!! URL::route('admin.image.getBannerBelow') !!}">Banner Dưới</a>
+                                </li>
+                                <li>
+                                    <a href="{!! URL::route('admin.image.getIcon') !!}">Icon</a>
+                                </li>
+                                <li>
+                                    <a href="{!! URL::route('admin.image.getLogo') !!}">Logo</a>
+                                </li>
+                            </ul>
+                            <!-- /.child_menu -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-drivers-license"></i>Thông tin<span class="fa arrow"></span></a>
                             <ul class="nav child_menu">
                                 <li>

@@ -36,7 +36,7 @@
                 <div style="color:red">{!! $errors->first('txtQuantity') !!}</div>
         </div>            
         <div class="form-group">
-
+<label>Hãng Sản Xuất</label>
             <?php $manufacturers = explode(',', $data['make']) ?>
                                 <select multiple id="manufacturer_select" style="width:100%" name="txtMake[]">
                                     @foreach($listManufacturer as $key => $manufacturer)

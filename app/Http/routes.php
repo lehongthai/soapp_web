@@ -136,6 +136,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
 		Route::get('edit/{id?}', ['as' => 'admin.catepost.getEdit', 'uses' => 'CatePostController@getEdit']);
 		Route::post('edit/{id?}', ['as' => 'admin.catepost.postEdit', 'uses' => 'CatePostController@postEdit']);
 	});
+
+	/*banner, icon, logo*/
+	Route::group(['prefix' => 'image'], function () {
+		Route::get('above', ['as' => 'admin.image.getBannerAbove', 'uses' => 'ImageController@getBannerAbove']);
+		Route::get('below', ['as' => 'admin.image.getBannerBelow', 'uses' => 'ImageController@getBannerBelow']);
+		Route::get('icon', ['as' => 'admin.image.getIcon', 'uses' => 'ImageController@getIcon']);
+		Route::get('logo', ['as' => 'admin.image.getLogo', 'uses' => 'ImageController@getLogo']);
+		Route::get('edit/{id?}', ['as' => 'admin.image.getEdit', 'uses' => 'ImageController@getEdit']);
+		Route::post('edit/{id?}', ['as' => 'admin.image.postEdit', 'uses' => 'ImageController@postEdit']);
+	});
 });
 Route::auth();
 
