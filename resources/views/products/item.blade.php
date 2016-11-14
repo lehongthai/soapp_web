@@ -50,7 +50,7 @@ Sản phẩm
                                                 <h1>{{$product->name}}</h1>
                                                 
                                                 <p>
-                                                    <span style="margin-right:15px;">Loại: <a href='' title=''></a></span>
+                                                    <!-- <span style="margin-right:15px;">Loại: <a href='' title=''></a></span> -->
                                                     <span>Nhà sản xuất: <a href='#' title=''></a></span>
                                                     
                                                 </p>

@@ -60,6 +60,7 @@ class cartController extends Controller
 
     public function createOrder(Request $data)
     {
+        $catalog = DB::table('cates')->get();
         $contents = Cart::content();
         $user['name'] = $data->name;
         $user['phone'] = $data->phone;
@@ -74,15 +75,12 @@ class cartController extends Controller
         );
 
         Mail::send('emails.welcome', $data, function ($message) {
-            $message->from('info.myphamkaradium@gmail.com', 'Đơn hàng mới');
-            $message->to('nguyenbichvankt@gmail.com')->subject('Đơn hàng mới');
+            $message->from('cau2binhdinh@gmail.com', 'Đơn hàng mới');
+            $message->to('12520438@gm.uit.edu.vn')->subject('Đơn hàng mới');
         });
 
-        if(detectMobile())
-        {
-            return view('mobile.m-done', ['contents'=>$contents, 'user'=>$user]);
-        }
-        return view('products.done', ['contents'=>$contents, 'user'=>$user]);
+        
+        return view('products.done', ['contents'=>$contents, 'user'=>$user, 'catalog'=>$catalog]);
     }
 
     public function mail()

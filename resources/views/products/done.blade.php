@@ -1,15 +1,19 @@
-@extends('layouts.main')
-@section('header')
-<link rel="stylesheet" type="text/css" href="{{url('')}}/public/css/check_out.css">
-<meta name="csrf-token" content="{{ Session::token() }}"> 
-<link rel="stylesheet" type="text/css" href="{{url('')}}/public/css/dataTables.bootstrap.min.css">
+@extends('layouts.master')
+@section('head')
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/css/cart.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="{!! url('public/admin') !!}/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/css/check_out.css">  <link rel="stylesheet" type="text/css" href="{{url('')}}/public/css/check_out.css">
 
+@stop
+
+@section('name')
+Giỏ hàng
 @stop
 
 @section('content')
 
         
-        <section id="container_sub" style="padding-top:58px;">
             <!-- <div id="content"> -->
   <a href="{{url('')}}" style="margin-top:35px;">
     <h1 style="color:#0065BF">
@@ -40,20 +44,20 @@
                 <div class="payment_methol">
                   <p>
                     <b>Giá trị đơn hàng:</b>
-                    <span>{{number_format($total,3)}} vn₫</span>
+                    <span>{{number_format($total,0, ",". ".")}} vn₫</span>
                   </p>
                                     
                   
                   
                   <p>
                     <b>Phí vận chuyển:</b>
-                    <span>{{number_format($user['ship'],3)}} vn₫</span>
+                    <span>{{number_format($user['ship'],3, ",", ".")}} vn₫</span>
                   </p>
                                     
                   <p>
                     <b>Tổng cộng:</b>
                     <?php $total = $total + $user['ship'];?>
-                    <span class="totalpayment"> {{number_format($total,3)}} vn₫</span>
+                    <span class="totalpayment"> {{number_format($total,0, ",". ".")}} vn₫</span>
                   </p>
                   <p>
                     <b>Phương thức thanh toán:</b>
@@ -75,14 +79,13 @@
 </div>
               
               
-              <p>Cảm ơn bạn đã sử dụng: <a class="linkshopname" href="{{url('')}}">"Mỹ phẩm Karadium chính hãng."</a></p>
+              <p>Cảm ơn bạn đã sử dụng: <a class="linkshopname" href="{{url('')}}">"dochoitinhducshop.com."</a></p>
               
             </div>
           </div>
           <!-- /end step3 -->
           
         </div>  
-        </section>
         
         <!-- //container -->
 

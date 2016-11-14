@@ -88,7 +88,7 @@
 
 
 
-            <li data-transition="random" data-slotamount="7" data-link="{{url('')}}nuoc-hoa-tinh-ai" data-title="">
+            <li data-transition="random" data-slotamount="7" data-link="#" data-title="">
 
 
 
@@ -206,22 +206,22 @@
                     <div class="section nobottommargin get_in_touch">
                         <div class="row clearfix">
                             <div class="col-md-3 nobottommargin">
-                                <a href="huong-dan-mua-hang-1.html">
+                                <a href="#">
                                     <img src="{{url('')}}/public/assets/banner_top_14565.gif?1476608156115" width="100%"/>
                                 </a>
                             </div>
                             <div class="col-md-3 nobottommargin">
-                                <a href="ymsgr:sendim?sextoygiagoc">
+                                <a href="#">
                                     <img src="{{url('')}}/public/assets/banner_top_24565.png?1476608156115" width="100%"/>
                                 </a>
                             </div>
                             <div class="col-md-3 nobottommargin">
-                                <a href="chinh-sach-doi-tra-hang-1.html">
+                                <a href="#">
                                     <img src="{{url('')}}/public/assets/banner_top_34565.gif?1476608156115" width="100%"/>
                                 </a>
                             </div>
                             <div class="col-md-3 nobottommargin col_last">
-                                <a href="quy-dinh-van-chuyen-1.html">
+                                <a href="#">
                                     <img src="{{url('')}}/public/assets/banner_top_44565.png?1476608156115" width="100%"/>
                                 </a>
                             </div>

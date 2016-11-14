@@ -8,8 +8,8 @@
                                 <th>Vị Trí</th>
                                 <th>Email</th>
                                 <th>Số Bàn</th>
-                                <th>FB</th>
                                 <th>Di Động</th>
+                                <th>FB</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
@@ -20,8 +20,8 @@
                                 <td>{!! $item['location'] !!}</td>
                                 <td>{!! $item['email'] !!}</td>
                                 <td>{!! $item['tel'] !!}</td>
-                                <td>{!! $item['facebook'] !!}</td>
                                 <td>{!! $item['phone'] !!}</td>
+                                <td>{!! $item['facebook'] !!}</td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{!! URL::route('admin.about.getEditShop', $item['id']) !!}">Edit</a></td>
                             </tr>
                         @endforeach()
