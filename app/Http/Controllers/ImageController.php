@@ -35,6 +35,12 @@ class ImageController extends Controller {
 		return view('admin.images.list', compact('data'));
 	}
 
+	public function getBannerTop()
+	{
+		$data = Image::select('id', 'image_thumb', 'name')->where('name', 'banner_top')->get()->toArray();
+		return view('admin.images.listtop', compact('data'));
+	}
+
 	public function getEdit($id=0)
 	{
 		$images = Image::find($id);
@@ -80,6 +86,8 @@ class ImageController extends Controller {
 			return redirect()->route('admin.image.getLogo')->with($message);
 		}elseif ($images->name == 'phone') {
 			return redirect()->route('admin.image.getPhone')->with($message);
+		}elseif ($images->name == 'banner_top') {
+			return redirect()->route('admin.image.getBannerTop')->with($message);
 		}
 		
 	}

@@ -139,6 +139,9 @@
                                     <a href="{!! URL::route('admin.image.getBannerBelow') !!}">Banner Dưới</a>
                                 </li>
                                 <li>
+                                    <a href="{!! URL::route('admin.image.getBannerTop') !!}">Banner Top</a>
+                                </li>
+                                <li>
                                     <a href="{!! URL::route('admin.image.getIcon') !!}">Icon</a>
                                 </li>
                                 <li>
