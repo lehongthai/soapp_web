@@ -8,6 +8,8 @@ Route::get('/catalog={slug}', 'viewController@showCatalog');
 
 Route::get('/navigation&slug={alias}', 'viewController@showSubCatalog');
 
+Route::get('/sam-pham-do-choi-tinh-duc-moi', 'viewController@showProNew');
+
 Route::get('/product={slug}&id={id}', 'viewController@showItemPro');
 
 Route::get('/gioi-thieu', 'viewController@info');

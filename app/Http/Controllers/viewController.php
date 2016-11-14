@@ -61,6 +61,18 @@ class viewController extends Controller
 		return view('products.cates', ['catalog'=>$catalog, 'product'=>$products, 'bestPro'=>$bestPro, 'newPro'=>$newPro]);
 	}
 
+	public function showProNew()
+	{
+		$sql="SELECT * FROM products ORDER BY id DESC LIMIT 20";
+		$products = DB::select($sql);
+		$catalog = DB::table('cates')->get();
+		$sql = 'SELECT * FROM products ORDER BY RAND() LIMIT 5';
+		$bestPro = DB::select($sql);
+		$sql = 'SELECT * FROM products ORDER BY id DESC LIMIT 5';
+		$newPro = DB::select($sql);
+		return view('products.cates', ['catalog'=>$catalog, 'product'=>$products, 'bestPro'=>$bestPro, 'newPro'=>$newPro]);
+	}
+
 	public function search(Request $data)
 	{
 		$query = $data['query'];

@@ -857,13 +857,13 @@
 
                                     <div class="heading-block topmargin-lg">
                                         <h3><strong>TƯNG BỪNG MUA SẮM !</strong></h3>
-                                        <span>Đăng kí để nhận ưu đãi lên đến 33% hôm nay!</span>
+                                        <span>Đăng kí để nhận ưu đãi lên đến 15% hôm nay!</span>
                                     </div>
 
                                     <p> Đừng bỏ lỡ cơ hội mua hàng để được <strong>ƯU ĐÃI </strong>lên đến 33% duy nhất trong năm nay! <strong>SEXTOY GIÁ GỐC </strong>luôn cam kết đem đến cho khách hàng thân yêu những sản phẩm tốt nhất, chất lượng tuyệt vời nhất và giá cả hợp lý nhất. Hãy ghé thăm website : <a href="index.html" target="_blank"><strong>SEXTOY GIÁ GỐC</strong></a> để thoả sức mua sắm..!</p>
 
                                     <div id="widget-subscribe-form3-result" data-notify-type="success" data-notify-msg=""></div>
-                                    <form accept-charset="UTF-8" id="widget-subscribe-form3" action="{{url('')}}account/contact" role="form" method="post">
+                                    <form accept-charset="UTF-8" id="widget-subscribe-form3" action="{{url('')}}" role="form" method="get">
                                         <div class="input-group" style="max-width:400px;">
                                             <span class="input-group-addon"><i class="icon-email2"></i></span>
                                             <input name="form_type" type="hidden" value="customer">

@@ -11,6 +11,7 @@
         <?php 
         // $domain = $_SERVER['HTTP_HOST']."/toy";
         $domain = URL('').'/';
+        $shop = DB::table('shop')->first();
         ?>
     <link rel="shortcut icon" href="{{url('')}}/public/assets/favicon4565.png?1476608156115" type="image/png" />
     <meta charset="utf-8" />
@@ -691,8 +692,8 @@ $('#menu_xs ul a span').click(function(e) {
     <div class="container clearfix">
         <div class="col_half nobottommargin hidden-xs hidden-sm">
             <p class="nobottommargin">
-                <strong><i class='icon-phone3'></i>0983 408 068 </strong>   
-                <strong><i class='icon-email3'></i> sextoygiagoc@gmail.com </strong>
+                <strong><i class='icon-phone3'></i>{{$shop->tel}} </strong>   
+                <strong><i class='icon-email3'></i> {{$shop->email}} </strong>
             </p>
         </div>
 
@@ -959,19 +960,12 @@ $('#menu_xs ul a span').click(function(e) {
                     <div class="widget clearfix">
 
                         <h4>Trụ sở chính</h4>
-                        <p>Chúng tôi tin chất lượng là<br /> dịch vụ tốt nhất để khẳng định.</p>
+                                    <p>Chúng tôi tin chất lượng là<br /> dịch vụ tốt nhất để khẳng định.</p>
 
-<strong>Địa chỉ:</strong>
-Ngõ 110 Trần Duy Hưng <br />
-Quận Cầu Giấy, TP. Hà Nội<br />
-<strong>Tel: <font color="red">0983 408 068<br /></font></strong>
-CN1: Số 27A, đường 58, F Phước <br /> Long A 
-Quận 9, TP. HCM<br />
-<strong>Tel: <font color="blue">0904 90 82 81<br /></font></strong>
-CN2: Số 94, Xô Viết Nghệ Tĩnh <br />F.21, Q. Bình Thạnh, TP. HCM <br />
-<strong>Tel: <font color="purple">0944 880 111<br /></font></strong>
-
-Email: sextoygiagoc@gmail.com
+                                    <strong>Địa chỉ:</strong> {{$shop->location}}<br />
+                                    <strong>Tel: <font color="red">{{$shop->tel}}</font></strong> <br />
+                                    <strong>Tel: <font color="blue">{{$shop->phone}}</font></strong>  <br />
+                                    <strong>Email:: <font color="purple">{{$shop->email}}</font></strong>  
 
 
                     </div>
@@ -1059,7 +1053,7 @@ Email: sextoygiagoc@gmail.com
                 <div class="widget subscribe-widget clearfix">
                     <h5 style='font-weight:bold; font-size:15px;'>Đăng kí email để nhận ngay ưu đãi lớn !</h5>
                     <div id="widget-subscribe-form-result" data-notify-type="success" data-notify-msg=""></div>
-                    <form accept-charset="UTF-8" id="widget-subscribe-form" action="http://sextoygiagoc.com/account/contact" role="form" method="post" class="nobottommargin">
+                    <form accept-charset="UTF-8" id="widget-subscribe-form" action="{{url('')}}" role="form" method="post" class="nobottommargin">
                         <div class="input-group divcenter">
                             <span class="input-group-addon"><i class="icon-email2"></i></span>
                             <input name="form_type" type="hidden" value="customer">
@@ -1098,11 +1092,11 @@ Email: sextoygiagoc@gmail.com
 
                         
                         <div class="col-md-6 clearfix bottommargin-sm prefooter-socials col-xs-6">
-                            <a href="https://www.facebook.com/baocaosu.sextoy" class="social-icon si-dark si-colored nobottommargin" style="margin-right: 10px;">
+                            <a href="{{$shop->facebook}}" class="social-icon si-dark si-colored nobottommargin" style="margin-right: 10px;">
                                 <i class="icon-facebook"></i>
                                 <i class="icon-facebook"></i>
                             </a>
-                            <a href="https://www.facebook.com/baocaosu.sextoy"><small style="display: block; margin-top: 3px;"><strong>sextoy giá gốc</strong></small></a><!--<strong>Like us</strong><br>on Facebook</small></a>-->
+                            <a href="{{$shop->facebook}}"><small style="display: block; margin-top: 3px;"><strong>sextoy giá gốc</strong></small></a><!--<strong>Like us</strong><br>on Facebook</small></a>-->
                         </div>
                         
 
@@ -1147,7 +1141,7 @@ Email: sextoygiagoc@gmail.com
                         <div style='float:right;'>
 
                             
-                            <a href="https://www.facebook.com/baocaosu.sextoy/" class="social-icon si-small si-borderless si-facebook">
+                            <a href="{{$shop->facebook}}/" class="social-icon si-small si-borderless si-facebook">
                                 <i class="icon-facebook"></i>
                                 <i class="icon-facebook"></i>
                             </a>
@@ -1205,7 +1199,7 @@ Email: sextoygiagoc@gmail.com
                     </div>
                     <div class="clear"></div>
 
-                    SEXTOY GIÁ GỐC - Ngõ 81 Trung Kính, Q. Cầu Giấy, Hà Nội | <br /> Email: sextoygiagoc@gmail.com | Hotline: 0904 90 82 81
+                    đồ chơi tình dục shop - {{$shop->location}} | <br /> Email: {{$shop->email}} | Hotline: {{$shop->tel}}
                 </div>
             </div>
         </div>
@@ -1679,9 +1673,9 @@ jQuery(document).ready(function($){
                     <a href="#"><img src="{{url('')}}/public/assets/nav-zalo-icon4565.jpg?1476608156115"></a>&nbsp;
                     <a href="#"><img src="{{url('')}}/public/assets/nav-viber-icon4565.jpg?1476608156115"></a>
                 </div>
-                <p class="nav-r-hotline">Hotline: <br>0983 408 068</p>
+                <p class="nav-r-hotline">Hotline: <br>{{$shop->phone}}</p>
                 <p>Từ 7:00 đến 22:00 các ngày trong tuần.</p>
-                <p>Ngoài giờ đó các bạn có thể email tới sextoygiagoc@gmail.com</p>
+                <p>Ngoài giờ đó các bạn có thể email tới {{$shop->email}}</p>
             </div>
         </li>
         <li class="top">
