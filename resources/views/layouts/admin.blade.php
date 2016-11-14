@@ -144,6 +144,9 @@
                                 <li>
                                     <a href="{!! URL::route('admin.image.getLogo') !!}">Logo</a>
                                 </li>
+                                <li>
+                                    <a href="{!! URL::route('admin.image.getPhone') !!}">Điện Thoại</a>
+                                </li>
                             </ul>
                             <!-- /.child_menu -->
                         </li>

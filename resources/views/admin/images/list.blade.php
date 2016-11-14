@@ -7,7 +7,7 @@
                                 <th>Tên</th>
                                 <th>Ảnh</th>
                                 @if($data->name == 'bannerBelow')
-                                <th>Chú Thích</th>
+                                <th>Nộ Dung</th>
                                 @endif()
                                 <th>Edit</th>
                             </tr>
@@ -17,7 +17,7 @@
                                 <td>{!! $data->name !!}</td>
                                 <td><img src="{!! $data->image_thumb !!}"></td>
                                 @if($data->name == 'bannerBelow')
-                                <td>{!! $data->text !!}</td>
+                                <td>{!! $data->content !!}</td>
                                 @endif()
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{!! URL::route('admin.image.getEdit', $data->id) !!}">Edit</a></td>
                             </tr>

@@ -9,7 +9,7 @@
                                 <label>Danh Mục Sản Phẩm</label>
                                 <select class="form-control" name="cate_id">
                                     <option value="0">Vui Lòng Chọn</option>
-                                    <?php cate_parent($parent, 0, '--', old('cate_id', $data['cate_id'])) ?>
+                                    <?php cate_parent($parent, 0, '--', old('cate_id', $data['cate_id'])); ?>
                                 </select>
                                 <div style="color:red">{!! $errors->first('cate_id') !!}</div>
                             </div>
@@ -37,7 +37,7 @@
         </div>            
         <div class="form-group">
 <label>Hãng Sản Xuất</label>
-            <?php $manufacturers = explode(',', $data['make']) ?>
+            <?php $manufacturers = explode(',', $data['make']); ?>
                                 <select multiple id="manufacturer_select" style="width:100%" name="txtMake[]">
                                     @foreach($listManufacturer as $key => $manufacturer)
                                     @foreach($manufacturers as $val)
@@ -48,7 +48,7 @@
         </div>
                             <div class="form-group">
                                 <label for="product_select">Chọn thẻ</label><br>
-                                <?php $tags = explode(',', $data['tags']) ?>
+                                <?php $tags = explode(',', $data['tags']); ?>
                                 <select multiple id="product_select" style="width:100%" name="tags[]">
                                     @foreach($listTags as $key => $tag)
                                     @foreach($tags as $val)

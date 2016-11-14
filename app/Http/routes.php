@@ -143,6 +143,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
 		Route::get('below', ['as' => 'admin.image.getBannerBelow', 'uses' => 'ImageController@getBannerBelow']);
 		Route::get('icon', ['as' => 'admin.image.getIcon', 'uses' => 'ImageController@getIcon']);
 		Route::get('logo', ['as' => 'admin.image.getLogo', 'uses' => 'ImageController@getLogo']);
+		Route::get('phone', ['as' => 'admin.image.getPhone', 'uses' => 'ImageController@getPhone']);
 		Route::get('edit/{id?}', ['as' => 'admin.image.getEdit', 'uses' => 'ImageController@getEdit']);
 		Route::post('edit/{id?}', ['as' => 'admin.image.postEdit', 'uses' => 'ImageController@postEdit']);
 	});
