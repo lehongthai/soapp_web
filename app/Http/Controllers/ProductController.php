@@ -73,7 +73,7 @@ class ProductController extends Controller {
 		$product->user_id = /*Auth::user()->id*/ 1;
 		$product->image_link = $request->fImages;
 		$product->alt = $request->txtAltImage;
-		$product->image_thumb = URL('').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
+		$product->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 		//$request->file('fImages')->move('/public/uploads/', $product->image);
 		$product->keywords = $request->txtKeywords;
 		$product->description = $request->txtDescription;
@@ -92,7 +92,7 @@ class ProductController extends Controller {
 					$productImage->image = $img;
 					$image_arr_detail = explode('/', $img);
 					$count_detail = count($image_arr_detail);	
-					$productImage->image_thumb =  URL('').'/public/upload/_thumbs/Files/'.$image_arr_detail[$count_detail-1];
+					$productImage->image_thumb =  url('/').'/public/upload/_thumbs/Files/'.$image_arr_detail[$count_detail-1];
 					$productImage->product_id = $product_id;
 					$productImage->save();		
 				}
@@ -139,7 +139,6 @@ class ProductController extends Controller {
 
 	public function postEdit(Request $request)
 	{
-
 		$listTagsOld = array();
 		
 		foreach (Request::input('tags') as $tag) {
@@ -154,16 +153,19 @@ class ProductController extends Controller {
 		}
 
 		$listManufacturerOld = array();
-		foreach (Request::input('txtMake') as $manufacturer) {
-			if (array_key_exists($manufacturer, Product::getListManufacturer())) {
-				array_push($listManufacturerOld, $manufacturer);
-			}else{
-				$dbManufacturer = new Manufacturer();
-				$dbManufacturer->name = $manufacturer;
-				$dbManufacturer->save();
-				array_push($listManufacturerOld, $dbTags->id);
+		if (Request::input('txtMake') != NULL) {
+			foreach (Request::input('txtMake') as $manufacturer) {
+				if (array_key_exists($manufacturer, Product::getListManufacturer())) {
+					array_push($listManufacturerOld, $manufacturer);
+				}else{
+					$dbManufacturer = new Manufacturer();
+					$dbManufacturer->name = $manufacturer;
+					$dbManufacturer->save();
+					array_push($listManufacturerOld, $dbTags->id);
+				}
 			}
 		}
+		
 
 		$product = Product::find(Request::input('id'));
 		if ($product) {
@@ -182,7 +184,7 @@ class ProductController extends Controller {
 			$product->user_id = /*Auth::user()->id*/1;
 			$product->image_link = Request::input('fImages');
 			$product->alt = Request::input('txtAltImage');
-			$product->image_thumb = URL().'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
+			$product->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 			$product->keywords = Request::input('txtKeywords');
 			$product->description = Request::input('txtDescription');
 			if($product->save()){
@@ -193,7 +195,7 @@ class ProductController extends Controller {
 			
 			if ($dataImg != null) {
 				foreach ($dataImg as $key => $img) {
-					if (array_key_exists($key, $idDetail)) 
+					if ($idDetail != NULL && array_key_exists($key, $idDetail)) 
 					{
 						$productImage = ProductImage::find($idDetail[$key]);
 					}else{
@@ -209,7 +211,7 @@ class ProductController extends Controller {
 					
 					$image_arr_detail = explode('/', $img);
 					$count_detail = count($image_arr_detail);	
-					$productImage->image_thumb =  URL().'/public/upload/_thumbs/Files/'.$image_arr_detail[$count_detail-1];
+					$productImage->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr_detail[$count_detail-1];
 					$productImage->product_id = Request::input('id');
 					$productImage->save();		
 				}

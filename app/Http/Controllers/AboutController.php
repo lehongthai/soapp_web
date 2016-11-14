@@ -29,7 +29,7 @@ class AboutController extends Controller {
 		$about->meta_desc = $request->txtDescription;
 		$about->image = $request->images;
 		$about->title = $request->title;
-		$about->image_thumb = URL().'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
+		$about->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 		if($about->save()){
 			$message = ['level' => 'success', 'flash_message' => 'Tạo thành công'];
 			return redirect()->route('admin.about.getList')->with($message);
@@ -74,7 +74,7 @@ class AboutController extends Controller {
 			$about->meta_desc = $request->txtDescription;
 			$about->image = $request->images;
 			$about->title = $request->title;
-			$about->image_thumb = URL().'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
+			$about->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 			if($about->save()){
 				$message = ['level' => 'success', 'flash_message' => 'Cập nhật thành công'];
 			}else{

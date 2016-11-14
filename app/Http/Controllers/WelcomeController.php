@@ -1,4 +1,5 @@
-<?php namespace App\Http\Controllers;
+<?php 
+namespace App\Http\Controllers;
 use DB, Mail, Cart;
 use Request, Session;
 use Illuminate\Http\Request as ValidateRequest;
