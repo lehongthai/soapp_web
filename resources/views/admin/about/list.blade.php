@@ -8,7 +8,6 @@
                                 <th>Tiêu Đề</th>
                                 <th>Keywords</th>
                                 <th>Description</th>
-                                <th>Icon</th>
                                 <th>Edit</th>
                             </tr>
                         </thead>
@@ -19,7 +18,6 @@
                                 <td>{!! $item['title'] !!}</td>
                                 <td>{!! $item['meta_key'] !!}</td>
                                 <td>{!! $item['meta_desc'] !!}</td>
-                                <td><img src="{!! $item['image_thumb'] !!}"></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{!! URL::route('admin.about.getEdit', $item['id']) !!}">Edit</a></td>
                             </tr>
                         @endforeach()

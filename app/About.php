@@ -7,7 +7,7 @@ class About extends Model {
 
 	protected $table = 'abouts';
 
-	protected $fillable = ['id', 'meta_key', 'meta_desc', 'image'];
+	protected $fillable = ['id', 'meta_key', 'meta_desc', 'image', 'title'];
 
 	public $timestamps = false;
 	public static function getTags()

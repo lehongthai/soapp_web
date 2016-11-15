@@ -17,17 +17,6 @@
                 <label>Description</label>
                 <textarea class="form-control" rows="3" name="txtDescription">{!! old('txtDescription', $data['meta_desc']) !!}</textarea>
             </div>
-            <div class="form-group">
-                <label>Ảnh Chính</label>
-                <div class="col-xs-12 thumbnail">
-                    <img src="{!! old('images', $data['image']) !!}" id="avatar">
-                    <hr>
-                    <input class="form-control" name="txtAltImage" placeholder="Chú thích ảnh" value="{!! old('txtAltImage', $data['alt']) !!}"  />
-                </div>
-                <input type="hidden" name="images" id="link_avatar" value="{!! old('images', $data['image']) !!}" >
-                <button type="button" class="btn btn-large btn-block btn-default" onclick="BrowseServer();">Chọn Ảnh</button>
-                <div style="color:red">{!! $errors->first('images') !!}</div>
-            </div>
             <button type="submit" class="btn btn-default">Cập Nhật</button>
             <button type="reset" class="btn btn-default">Reset</button>
         <form>

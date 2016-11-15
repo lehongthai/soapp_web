@@ -14,23 +14,34 @@
         <?php 
     	$domain = URL('').'/';
         $shop = DB::table('shop')->first();
-    	?>
-        <link rel="shortcut icon" href="{{url('')}}/public/assets/favicon4565.png?1476608156115" type="image/png" />
-        <meta charset="utf-8" />
-        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
-        <title>
-            TRUNG TÂM BÁN BUÔN BÁN LẺ ĐỒ CHƠI TÌNH DỤC - SEXTOY &ndash; 
-        </title>
-        <meta name="description" content="đồ chơi tình dục shop! giao hàng sex toy trên toàn quốc, sextoy tphcm, sextoy hcm, kín đáo, uy tín, lịch sự, đặt hàng sextoy rung ngay hôm nay 0983.408.068" />
-        <!-- Product meta ================================================== -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="TRUNG T&#194;M B&#193;N BU&#212;N B&#193;N LẺ ĐỒ CHƠI T&#204;NH DỤC - SEXTOY" />
-        <meta property="og:image" content="{{url('')}}/public/assets/logo4565.png?1476608156115" />
-        <meta property="og:image" content="{{url('')}}/public/assets/logo4565.png?1476608156115" />
-        <meta property="og:description" content="sextoy gi&#225; gốc! giao h&#224;ng sex toy tr&#234;n to&#224;n quốc, sextoy tphcm, sextoy hcm, k&#237;n đ&#225;o, uy t&#237;n, lịch sự, đặt h&#224;ng sextoy rung ngay h&#244;m nay 0983.408.068" />
-        <meta property="og:url" content="{{url('')}}" />
-        <meta property="og:site_name" content="{{url('')}}" />
-        <meta name="google-site-verification" content="0VEcAW2rV-ZomtOzK-bRC6RpLjJS6SH19Ej5_yFR0Q0" />
+        $banner = DB::table('images')->get();
+    	$seo = DB::table('abouts')->first();
+        ?>
+    <link rel="shortcut icon" href="{{$banner[3]->image_link}}" type="image/png" />
+    <meta charset="utf-8" />
+    <meta name="csrf-token" content="{{ Session::token() }}"> 
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+    <title>
+        {{$seo->title}}
+    </title>
+    
+    <meta name="description" content="{{$seo->meta_desc}}" />
+    
+
+    <!-- Product meta ================================================== -->
+    
+
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{$seo->title}}" />
+  
+    <meta property="og:image" content="{{$banner[2]->image_link}}" />
+
+
+<meta name="keywords" content="{{$seo->meta_key}}">
+
+<meta property="og:url" content="{{url('')}}" />
+<meta property="og:site_name" content="{{url('')}}" />
         <link rel="canonical" href="{{url('')}}" />
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport' />
         <style>
@@ -308,8 +319,8 @@
 
                         <div id="logo" class='col-md-3'>
 
-                            <a href="{{url('')}}" class="standard-logo" data-dark-logo="//bizweb.dktcdn.net/100/086/968/themes/111253/assets/logo.png?1476608156115"><img src="{{url('')}}/public/assets/logo4565.png?1476608156115" alt="TRUNG TÂM BÁN BUÔN BÁN LẺ ĐỒ CHƠI TÌNH DỤC - SEXTOY"></a>
-                            <a href="{{url('')}}" class="retina-logo" data-dark-logo="//bizweb.dktcdn.net/100/086/968/themes/111253/assets/logo.png?1476608156115"><img src="{{url('')}}/public/assets/logo4565.png?1476608156115" alt="TRUNG TÂM BÁN BUÔN BÁN LẺ ĐỒ CHƠI TÌNH DỤC - SEXTOY"></a>
+                            <a href="{{url('')}}" class="standard-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="TRUNG TÂM BÁN BUÔN BÁN LẺ ĐỒ CHƠI TÌNH DỤC - SEXTOY"></a>
+                            <a href="{{url('')}}" class="retina-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="TRUNG TÂM BÁN BUÔN BÁN LẺ ĐỒ CHƠI TÌNH DỤC - SEXTOY"></a>
                         </div>
                         <!-- #logo end -->
 
@@ -413,7 +424,7 @@
                             </div>
                             <div class="col-md-3 top-hotline-block hidden-xs hidden-sm">
                                 <div class="header-hotline">
-                                    <p><img src="{{url('')}}/public/assets/hotline4565.gif?1476608156115" /></p>
+                                    <p><img src="{{$banner[4]->image_link}}" /></p>
                                 </div>
                             </div>
                         </div>
@@ -604,11 +615,11 @@
 
 
                                     <div class="col-md-6 clearfix prefooter-socials col-xs-6">
-                                        <a href="https://www.youtube.com/channel/UCsdnejYq0Z7waCi-ijvHhrA" class="social-icon si-dark si-colored nobottommargin" style="margin-right: 10px;">
+                                        <a href="#" class="social-icon si-dark si-colored nobottommargin" style="margin-right: 10px;">
                                             <i class="icon-youtube"></i>
                                             <i class="icon-youtube"></i>
                                         </a>
-                                        <a href="https://www.youtube.com/channel/UCsdnejYq0Z7waCi-ijvHhrA"><small style="display: block; margin-top: 3px;"><strong> đồ chơi tình dục shop</strong></small></a>
+                                        <a href="#"><small style="display: block; margin-top: 3px;"><strong> đồ chơi tình dục shop</strong></small></a>
                                         <!--<strong>Subscribe</strong><br>to RSS Feeds</small></a>-->
                                     </div>
 
@@ -645,42 +656,42 @@
                                     <div style='float:right;'>
 
 
-                                        <a href="{{$shop->facebook}}/" class="social-icon si-small si-borderless si-facebook">
+                                        <a href="{{$shop->facebook}}" class="social-icon si-small si-borderless si-facebook">
                                             <i class="icon-facebook"></i>
                                             <i class="icon-facebook"></i>
                                         </a>
 
 
 
-                                        <a href="https://twitter.com/sextoygiagoc" class="social-icon si-small si-borderless si-twitter">
+                                        <a href="#" class="social-icon si-small si-borderless si-twitter">
                                             <i class="icon-twitter"></i>
                                             <i class="icon-twitter"></i>
                                         </a>
 
 
 
-                                        <a href="https://plus.google.com/+SextoyGiáGốcsextoygiagoc" class="social-icon si-small si-borderless si-gplus">
+                                        <a href="#" class="social-icon si-small si-borderless si-gplus">
                                             <i class="icon-gplus"></i>
                                             <i class="icon-gplus"></i>
                                         </a>
 
 
 
-                                        <a href="https://www.pinterest.com/sextoygiagoc/" class="social-icon si-small si-borderless si-pinterest">
+                                        <a href="#" class="social-icon si-small si-borderless si-pinterest">
                                             <i class="icon-pinterest"></i>
                                             <i class="icon-pinterest"></i>
                                         </a>
 
 
 
-                                        <a href="https://vimeo.com/sextoygiagoc" class="social-icon si-small si-borderless si-vimeo">
+                                        <a href="#" class="social-icon si-small si-borderless si-vimeo">
                                             <i class="icon-vimeo"></i>
                                             <i class="icon-vimeo"></i>
                                         </a>
 
 
 
-                                        <a href="http://git.com/" class="social-icon si-small si-borderless si-github">
+                                        <a href="#" class="social-icon si-small si-borderless si-github">
                                             <i class="icon-github"></i>
                                             <i class="icon-github"></i>
                                         </a>
@@ -694,7 +705,7 @@
 
 
 
-                                        <a href="https://www.tumblr.com/blog/sextoygiagoc" class="social-icon si-small si-borderless si-linkedin">
+                                        <a href="#" class="social-icon si-small si-borderless si-linkedin">
                                             <i class="icon-linkedin"></i>
                                             <i class="icon-linkedin"></i>
                                         </a>
@@ -703,7 +714,7 @@
                                 </div>
                                 <div class="clear"></div>
 
-                                đồ chơi tình dục shop - {{$shop->location}} | <br /> Email: {{$shop->email}} | Hotline: {{$shop->tel}}
+                                Đồ chơi tình dục shop - {{$shop->location}} | <br /> Email: {{$shop->email}} | Hotline: {{$shop->tel}}
                             </div>
                         </div>
                     </div>
@@ -944,7 +955,7 @@
                     <a href="{{url('')}}/cart" id="top-cart-trigger">
 				<img src="{{url('')}}/public/assets/icon-gio-hang4565.png?1476608156115" alt='Giỏ hàng'>
 				Giỏ hàng
-				<span class='top_cart_qty'>0</span>
+				<span class='top_cart_qty'></span>
 			</a>
                     <a href="{{url('')}}/cart" class="right_cart"></a>
                 </li>
@@ -1077,6 +1088,28 @@
             }
 
         </style>
+        <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <style>#cfacebook{position:fixed;bottom:0px;left:100px;z-index:999999999999999;width:250px;height:auto;box-shadow:6px 6px 6px 10px rgba(0,0,0,0.2);border-top-left-radius:5px;border-top-right-radius:5px;overflow:hidden;}#cfacebook .fchat{float:left;width:100%;height:270px;overflow:hidden;display:none;background-color:#fff;}#cfacebook .fchat .fb-page{margin-top:-130px;float:left;}#cfacebook a.chat_fb{float:left;padding:0 25px;width:250px;color:#fff;text-decoration:none;height:40px;line-height:40px;text-shadow:0 1px 0 rgba(0,0,0,0.1);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);background-repeat:repeat-x;background-size:auto;background-position:0 0;background-color:#3a5795;border:0;border-bottom:1px solid #133783;z-index:9999999;margin-right:12px;font-size:18px;}#cfacebook a.chat_fb:hover{color:yellow;text-decoration:none;}</style>
+  <script>
+  jQuery(document).ready(function () {
+  jQuery(".chat_fb").click(function() {
+jQuery('.fchat').toggle('slow');
+  });
+  });
+  </script>
+  <div id="cfacebook">
+  <a href="javascript:;" class="chat_fb" onclick="return:false;"> <img src="{{url('')}}/public/assets/fb-icon-1.png" alt="Facebook Chat" /> Chat với chúng tôi!</a>
+  <div class="fchat">
+  <div class="fb-page" data-tabs="messages" data-href="{{$shop->facebook}}" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+  </div>
+  </div>
         
     </body>
 

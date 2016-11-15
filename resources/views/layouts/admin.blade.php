@@ -130,7 +130,7 @@
                             <!-- /.child_menu -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-drivers-license"></i>Banner<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-picture-o"></i>Banner<span class="fa arrow"></span></a>
                             <ul class="nav child_menu">
                                 <li>
                                     <a href="{!! URL::route('admin.image.getBannerAbove') !!}">Banner Trên</a>

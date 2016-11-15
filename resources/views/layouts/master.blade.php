@@ -9,19 +9,20 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
         <?php 
-        // $domain = $_SERVER['HTTP_HOST']."/toy";
         $domain = URL('').'/';
         $shop = DB::table('shop')->first();
+        $banner = DB::table('images')->get();
+        $seo = DB::table('abouts')->first();
         ?>
-    <link rel="shortcut icon" href="{{url('')}}/public/assets/favicon4565.png?1476608156115" type="image/png" />
+    <link rel="shortcut icon" href="{{$banner[3]->image_link}}" type="image/png" />
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ Session::token() }}"> 
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
     <title>
-        Sextoy
+        {{$seo->title}}
     </title>
     
-    <meta name="description" content="Bước 1: Truy cập website và lựa chọn sản phẩm cần mua để mua hàng Bước 2: Click và sản phẩm muốn mua, màn hình hiển thị ra pop up với các lựa chọn sau Nếu bạn" />
+    <meta name="description" content="{{$seo->meta_desc}}" />
     
 
     <!-- Product meta ================================================== -->
@@ -29,21 +30,16 @@
 
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Giới thiệu sản phẩm" />
+  <meta property="og:title" content="{{$seo->title}}" />
   
-    <meta property="og:image" content="{{url('')}}/public/assets/logo4565.png?1476608156115" />
-    <meta property="og:image" content="{{url('')}}/public/assets/logo4565.png?1476608156115" />
-  
+    <meta property="og:image" content="{{$banner[2]->image_link}}" />
 
 
+<meta name="keywords" content="{{$seo->meta_key}}">
 
-<meta property="og:description" content="Bước 1: Truy cập website v&#224; lựa chọn sản phẩm cần mua để mua h&#224;ng Bước 2: Click v&#224; sản phẩm muốn mua, m&#224;n h&#236;nh hiển thị ra pop up với c&#225;c lựa chọn sau Nếu bạn" />
+<meta property="og:url" content="{{url('')}}" />
+<meta property="og:site_name" content="{{url('')}}" />
 
-<meta property="og:url" content="gioi-thieu-san-pham.html" />
-<meta property="og:site_name" content="SEXTOYGIAGOC.COM" />
-    <meta name="google-site-verification" content="0VEcAW2rV-ZomtOzK-bRC6RpLjJS6SH19Ej5_yFR0Q0" />
-
-    <link rel="canonical" href="gioi-thieu-san-pham.html" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport' />
 
     <style>
@@ -92,31 +88,9 @@ Bizweb.template = 'page';
                 //]]>
                 </script>
 
-<script>
-(function() {
-function asyncLoad() {
-var urls = ["https://integration.subiz.com/bizweb/script.js?store=en-sextoygiagoc.bizwebvietnam.net","{{url('')}}/public/assets/script32e7.js?store=en-sextoygiagoc.bizwebvietnam.net","{{url('')}}/public/assets/script32e7.js?store=en-sextoygiagoc.bizwebvietnam.net","https://collectionfilter.bizwebapps.vn/genscript/script.js?store=en-sextoygiagoc.bizwebvietnam.net"];
-for (var i = 0; i < urls.length; i++) {
-var s = document.createElement('script');
-s.type = 'text/javascript';
-s.async = true;
-s.src = urls[i];
-s.src = urls[i];
-var x = document.getElementsByTagName('script')[0];
-x.parentNode.insertBefore(s, x);
-}
-}
-window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);
-})();
-</script>
 
-<script type='text/javascript'>
-(function() {
-var log = document.createElement('script'); log.type = 'text/javascript'; log.async = true;
-log.src = '{{url('')}}/public/assets/86968e034.js?lang=vi';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(log, s);
-})();
-</script>
+
+
 
 <!-- Google Tag Manager -->
 <noscript>
@@ -743,8 +717,8 @@ $('#menu_xs ul a span').click(function(e) {
             
             <div id="logo" class='col-md-3'>
 
-                <a href="{{url('')}}" class="standard-logo" data-dark-logo="//bizweb.dktcdn.net/100/086/968/themes/111253/assets/logo.png?1476608156115"><img src="{{url('')}}/public/assets/logo4565.png?1476608156115" alt="Giới thiệu sản phẩm"></a>
-                <a href="{{url('')}}" class="retina-logo" data-dark-logo="//bizweb.dktcdn.net/100/086/968/themes/111253/assets/logo.png?1476608156115"><img src="{{url('')}}/public/assets/logo4565.png?1476608156115" alt="Giới thiệu sản phẩm"></a>
+                <a href="{{url('')}}" class="standard-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="Giới thiệu sản phẩm"></a>
+                <a href="{{url('')}}" class="retina-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="Giới thiệu sản phẩm"></a>
             </div><!-- #logo end -->
             
 
@@ -869,7 +843,7 @@ $('#menu_xs ul a span').click(function(e) {
                             </div>
                             <div class="col-md-3 top-hotline-block hidden-xs hidden-sm">
                                 <div class="header-hotline">
-                                    <p><img src="{{url('')}}/public/assets/hotline4565.gif?1476608156115" /></p>
+                                    <p><img src="{{$banner[4]->image_link}}" /></p>
                                 </div>
                             </div>
                         </div>
@@ -1102,11 +1076,11 @@ $('#menu_xs ul a span').click(function(e) {
 
                         
                         <div class="col-md-6 clearfix prefooter-socials col-xs-6">
-                            <a href="https://www.youtube.com/channel/UCsdnejYq0Z7waCi-ijvHhrA" class="social-icon si-dark si-colored nobottommargin" style="margin-right: 10px;">
+                            <a href="   " class="social-icon si-dark si-colored nobottommargin" style="margin-right: 10px;">
                                 <i class="icon-youtube"></i>
                                 <i class="icon-youtube"></i>
                             </a>
-                            <a href="https://www.youtube.com/channel/UCsdnejYq0Z7waCi-ijvHhrA"><small style="display: block; margin-top: 3px;"><strong> sextoy giá gốc</strong></small></a><!--<strong>Subscribe</strong><br>to RSS Feeds</small></a>-->
+                            <a href="#"><small style="display: block; margin-top: 3px;"><strong> sextoy giá gốc</strong></small></a><!--<strong>Subscribe</strong><br>to RSS Feeds</small></a>-->
                         </div>
                         
 
@@ -1141,35 +1115,35 @@ $('#menu_xs ul a span').click(function(e) {
                         <div style='float:right;'>
 
                             
-                            <a href="{{$shop->facebook}}/" class="social-icon si-small si-borderless si-facebook">
+                            <a href="{{$shop->facebook}}" class="social-icon si-small si-borderless si-facebook">
                                 <i class="icon-facebook"></i>
                                 <i class="icon-facebook"></i>
                             </a>
                             
 
                             
-                            <a href="https://twitter.com/sextoygiagoc" class="social-icon si-small si-borderless si-twitter">
+                            <a href="https://twitter.com" class="social-icon si-small si-borderless si-twitter">
                                 <i class="icon-twitter"></i>
                                 <i class="icon-twitter"></i>
                             </a>
                             
 
                             
-                            <a href="https://plus.google.com/+SextoyGiáGốcsextoygiagoc" class="social-icon si-small si-borderless si-gplus">
+                            <a href="https://plus.google.com" class="social-icon si-small si-borderless si-gplus">
                                 <i class="icon-gplus"></i>
                                 <i class="icon-gplus"></i>
                             </a>
                             
 
                             
-                            <a href="https://www.pinterest.com/sextoygiagoc/" class="social-icon si-small si-borderless si-pinterest">
+                            <a href="https://www.pinterest.com" class="social-icon si-small si-borderless si-pinterest">
                                 <i class="icon-pinterest"></i>
                                 <i class="icon-pinterest"></i>
                             </a>
                             
 
                             
-                            <a href="https://vimeo.com/sextoygiagoc" class="social-icon si-small si-borderless si-vimeo">
+                            <a href="https://vimeo.com" class="social-icon si-small si-borderless si-vimeo">
                                 <i class="icon-vimeo"></i>
                                 <i class="icon-vimeo"></i>
                             </a>
@@ -1199,7 +1173,7 @@ $('#menu_xs ul a span').click(function(e) {
                     </div>
                     <div class="clear"></div>
 
-                    đồ chơi tình dục shop - {{$shop->location}} | <br /> Email: {{$shop->email}} | Hotline: {{$shop->tel}}
+                    Đồ chơi tình dục shop - {{$shop->location}} | <br /> Email: {{$shop->email}} | Hotline: {{$shop->tel}}
                 </div>
             </div>
         </div>
@@ -1572,92 +1546,14 @@ $('#menu_xs ul a span').click(function(e) {
     </div>
 </div>
 
-<script>
-var currentIMG = '';  
-jQuery(".product_quick_add").each(function(){ 
-    $(this).on('click', function(event){ 
-        event.preventDefault(); 
 
-        // quick add 
-        currentIMG = $(this).parents('.product , .product-item').find('.product-image img'); 
-        quickAddProduct($(this).attr('href')); // make-up "#product-quick-add" 
-
-    });
-}); 
-
-var callBackQuickAdd = function(variant, selector) {  
-    // console.log('callBackQV  is functioning...'); 
-
-    var $tagPrice = '#product-quick-add .price strong';
-    var $tagPriceCompare = '#product-quick-add .price em span';
-    var $tagProductSection = '#ProductDetailsForm_QuickAdd'; 
-    update_variant(variant, $tagPrice, $tagPriceCompare, '#addtocartQA', $tagProductSection);     
-}
-var quickAddProduct = function (purl) { 
-
-    // if ($(window).width() < 680) { window.location = purl; return false; }
-    // modal = $('#quick-view-modal'); modal.modal('show');
-    $.ajax({
-        url: purl + '.js',
-        async: false,
-        success: function (product) {
-            //make-up "#product-quick-add"   
-            // assign hidden values 
-            $('#product-quick-add .product_title_hd').val(product.name);  
-            $('#product-quick-add .product_url').val(purl);  
-            $('#product-quick-add .product_img_small').val(product.featured_image);  // AAA!!!  
-
-            //render selections (NOT formatted yet)
-            $('select#product-select-qa').html('');  
-            $('.selector-wrapper').remove(); // remove all selectors by  Haravan.OptionSelectors  
-            // var $arrSize = [];
-            // var $arrColor = []; 
-            $.each(product.variants, function (i, v) {
-                $('select#product-select-qa').append("<option value='" + v.id + "'>" + v.title + ' - ' + v.price + "</option>");
-                });  
-
-            new Bizweb.OptionSelectors("product-select-qa", { product: product, onVariantSelected: callBackQuickAdd });   
-
-            // select default variants   
-            var $size = $("#product-select-qa-option-0 option:first").attr('selected', 'selected'); 
-            var $color = $("#product-select-qa-option-1 option:first").attr('selected', 'selected');  
-            var $material = $("#product-select-qa-option-2 option:first").attr('selected', 'selected');  
-            var $tagSelectOption0 = '#product-select-qa-option-0'; 
-            var $tagSelectOption1 = '#product-select-qa-option-1';  
-            var $tagSelectOption2 = '#product-select-qa-option-2'; 
-            refreshProductSelections($tagSelectOption0, $size, $tagSelectOption1 , $color, $tagSelectOption2, $material);
-
-            //auto add current variant... 
-            // $('#ProductDetailsForm_QuickAdd').submit(); 
-            $("#addtocartQA").click(); 
-
-        }//end: success 
-    });
-
-    //$('.modal-backdrop').css('opacity', '0');
-    return false;
-}
-
-
-jQuery(document).ready(function($){
-    //add to cart for QuickView
-    $("#addtocartQA").on('click', function(e) {  //.click(function(e){ // 
-
-        e.preventDefault();
-        addItem('ProductDetailsForm_QuickAdd', currentIMG);
-
-    }); 
-}); 
-/*** end quick add cart ***/
-
-</script>
     <div class="navibar-right hidden-xs">
     <ul>
         <li class="nav-gio-hang top-cart-block" id="top-cart">
             <a href="cart.html" id="top-cart-trigger">
                 <img src="{{url('')}}/public/assets/icon-gio-hang4565.png?1476608156115" alt='Giỏ hàng'>
                 Giỏ hàng
-                <span class='top_cart_qty'>0</span>
+                <span class='top_cart_qty'></span>
             </a>
             <a href="{{url('')}}/cart" class="right_cart"></a>
         </li>
@@ -1716,71 +1612,29 @@ jQuery(document).ready(function($){
     }
 </style>
     <!-- end quick add cart -->
-<div id="facebook-inbox">
-    <button class="facebook-inbox-tab" style="display: block; ">
-        <span class="facebook-inbox-tab-icon">
-            <img src="{{url('')}}/public/assets/fb-icon-1.png" alt="Facebook Chat" />
-        </span>
-        <span class="facebook-inbox-tab-title">chat với chúng tôi</span>
-    </button>
-
-    <div id="facebook-inbox-frame">
-        <div id="fb-root">&nbsp;</div>
-        <div class="fb-page" data-adapt-container-width="true" data-hide-cover="false" data-href="" data-show-facepile="true" data-small-header="true" data-width="250" data-height="350" data-tabs="messages">
-            <div class="fb-xfbml-parse-ignore">
-                <blockquote cite=""><a href="#">Chat với chúng tôi</a></blockquote>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    #facebook-inbox {
-        position: fixed;
-        bottom: 0px;
-        z-index: 110000;
-        text-align: center;
-        display: none;
-    }
-
-    .facebook-inbox-tab-icon {
-        float: left;
-    }
-
-    .facebook-inbox-tab-title {
-        float: left;
-        margin-left: 10px;
-        line-height: 25px;
-    }
-
-    #facebook-inbox-frame {
-        display: none;
-        width: 100%;
-        min-height: 200px;
-        overflow: hidden;
-        position: relative;
-        background-color: #f5f5f5;
-    }
-
-    #fb-root {
-        height: 0px;
-    }
-
-    .facebook-inbox-tab {
-        top: 0px;
-        bottom: 0px;
-        margin: -40px 0px 0px 0px;
-        position: relative;
-        height: 40px;
-        width: 250px;
-        border: 1px solid;
-        border-radius: 0px 0px 0px 0px;
-        text-align: center;
-        background-color: #19a3dd;
-        color: #ffffff;
-    }
-</style>
+<div id="fb-root"></div>
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <style>#cfacebook{position:fixed;bottom:0px;left:100px;z-index:999999999999999;width:250px;height:auto;box-shadow:6px 6px 6px 10px rgba(0,0,0,0.2);border-top-left-radius:5px;border-top-right-radius:5px;overflow:hidden;}#cfacebook .fchat{float:left;width:100%;height:270px;overflow:hidden;display:none;background-color:#fff;}#cfacebook .fchat .fb-page{margin-top:-130px;float:left;}#cfacebook a.chat_fb{float:left;padding:0 25px;width:250px;color:#fff;text-decoration:none;height:40px;line-height:40px;text-shadow:0 1px 0 rgba(0,0,0,0.1);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);background-repeat:repeat-x;background-size:auto;background-position:0 0;background-color:#3a5795;border:0;border-bottom:1px solid #133783;z-index:9999999;margin-right:12px;font-size:18px;}#cfacebook a.chat_fb:hover{color:yellow;text-decoration:none;}</style>
+  <script>
+  jQuery(document).ready(function () {
+  jQuery(".chat_fb").click(function() {
+jQuery('.fchat').toggle('slow');
+  });
+  });
+  </script>
+  <div id="cfacebook">
+  <a href="javascript:;" class="chat_fb" onclick="return:false;"> <img src="{{url('')}}/public/assets/fb-icon-1.png" alt="Facebook Chat" /> Chat với chúng tôi!</a>
+  <div class="fchat">
+  <div class="fb-page" data-tabs="messages" data-href="{{$shop->facebook}}" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+  </div>
+  </div>
 </body>
 
-<!-- Mirrored from sextoygiagoc.com/gioi-thieu-san-pham by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2016 09:19:28 GMT -->
+
 </html>

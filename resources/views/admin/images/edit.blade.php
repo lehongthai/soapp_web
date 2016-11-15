@@ -5,6 +5,9 @@
         <form action="{!! route('admin.image.getEdit') !!}" method="POST">
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         <input type="hidden" name="id" value="{!! $data['id'] !!}">
+            <div class="form-group">
+                <label>Kích thước quy định: <b>{{$data['size']}}</b></label>
+            </div>
         @if($data['name'] == 'bannerBelow')
             <div class="form-group">
                 <label>Nội Dung</label>

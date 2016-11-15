@@ -37,9 +37,9 @@
         <th><img src="{{$con->options->img}}" width="150"></th>
         <th>{{$con->name}}</th>
         <th>{{$con->color}}</th>
-        <th>{{number_format($con->price, 3)}} vnđ</th>
+        <th>{{number_format($con->price, 0)}} vnđ</th>
         <th>{{$con->qty}}</th>
-        <th>{{number_format($con->subtotal, 3)}} vnđ</th>
+        <th>{{number_format($con->subtotal, 0)}} vnđ</th>
         <?php $total = $total + $con->subtotal;?>
         </tr>
       @endforeach
@@ -48,13 +48,13 @@
     <tr>
       <th colspan="2"></th>
       <th colspan="2">Phí ship: </th>
-      <th colspan="2"> {{number_format($user['ship'],3)}} vn₫</th>
+      <th colspan="2"> {{number_format($user['ship'],0)}} vn₫</th>
     </tr>
     <tr>
     <?php $total = $total + $user['ship'];?>
       <th colspan="2"></th>
       <th colspan="2">Tổng tiền: </th>
-      <th colspan="2"> {{number_format($total,3)}} vn₫</th>
+      <th colspan="2"> {{number_format($total,0)}} vn₫</th>
     </tr>
     </tfoot>
   </table>

@@ -3,6 +3,7 @@
 @section('slider')
 <?php 
     $domain = URL('').'/';
+    $banner = DB::table('images')->get();
 ?>
 
 <style type="text/css">
@@ -207,22 +208,22 @@
                         <div class="row clearfix">
                             <div class="col-md-3 nobottommargin">
                                 <a href="#">
-                                    <img src="{{url('')}}/public/assets/banner_top_14565.gif?1476608156115" width="100%"/>
+                                    <img src="{{$banner[5]->image_link}}" width="100%"/>
                                 </a>
                             </div>
                             <div class="col-md-3 nobottommargin">
                                 <a href="#">
-                                    <img src="{{url('')}}/public/assets/banner_top_24565.png?1476608156115" width="100%"/>
+                                    <img src="{{$banner[6]->image_link}}" width="100%"/>
                                 </a>
                             </div>
                             <div class="col-md-3 nobottommargin">
                                 <a href="#">
-                                    <img src="{{url('')}}/public/assets/banner_top_34565.gif?1476608156115" width="100%"/>
+                                    <img src="{{$banner[7]->image_link}}" width="100%"/>
                                 </a>
                             </div>
                             <div class="col-md-3 nobottommargin col_last">
                                 <a href="#">
-                                    <img src="{{url('')}}/public/assets/banner_top_44565.png?1476608156115" width="100%"/>
+                                    <img src="{{$banner[8]->image_link}}" width="100%"/>
                                 </a>
                             </div>
                         </div>
@@ -231,7 +232,7 @@
                     <div class='hidden-sm hidden-xs'>
 
                         <div class="col-md-12 noleftpadding banner-img bottom-margin">
-                            <a class='banner-link' href="gel-titan-developpe-sex.html">
+                            <a class='banner-link' href="{{url('')}}">
                                 <div class='banner-content-wrapper'>
                                     <h2 class='banner-title'><strong><font color="white">KHUYẾN MÃI ĐẶC BIỆT KHI ĐẶT ONLINE GÓI GEL TITAN DEVELOPPE SEX</font></strong></h2>
 

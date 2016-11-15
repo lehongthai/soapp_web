@@ -28,7 +28,7 @@ class AboutController extends Controller {
 		$about->meta_key = $request->txtKeywords;
 		$about->meta_desc = $request->txtDescription;
 		$about->image = $request->images;
-		$about->title = $request->title;
+		$about->title = $request->txtTitle;
 		$about->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 		if($about->save()){
 			$message = ['level' => 'success', 'flash_message' => 'Tạo thành công'];
@@ -73,7 +73,7 @@ class AboutController extends Controller {
 			$about->meta_key = $request->txtKeywords;
 			$about->meta_desc = $request->txtDescription;
 			$about->image = $request->images;
-			$about->title = $request->title;
+			$about->title = $request->txtTitle;
 			$about->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 			if($about->save()){
 				$message = ['level' => 'success', 'flash_message' => 'Cập nhật thành công'];

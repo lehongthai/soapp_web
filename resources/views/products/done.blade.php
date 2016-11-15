@@ -44,20 +44,20 @@ Giỏ hàng
                 <div class="payment_methol">
                   <p>
                     <b>Giá trị đơn hàng:</b>
-                    <span>{{number_format($total,0, ",". ".")}} vn₫</span>
+                    <span>{{number_format($total,0, ",", ".")}} vn₫</span>
                   </p>
                                     
                   
                   
                   <p>
                     <b>Phí vận chuyển:</b>
-                    <span>{{number_format($user['ship'],3, ",", ".")}} vn₫</span>
+                    <span>{{number_format($user['ship'],0, ",", ".")}} vn₫</span>
                   </p>
                                     
                   <p>
                     <b>Tổng cộng:</b>
                     <?php $total = $total + $user['ship'];?>
-                    <span class="totalpayment"> {{number_format($total,0, ",". ".")}} vn₫</span>
+                    <span class="totalpayment"> {{number_format($total,0, ",", ".")}} vn₫</span>
                   </p>
                   <p>
                     <b>Phương thức thanh toán:</b>

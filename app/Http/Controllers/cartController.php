@@ -69,14 +69,14 @@ class cartController extends Controller
         $user['note'] = $data->note;
         $user['tinh'] = $data->tinh;
         $user['gateway'] = $data->gateway;
-        $user['ship'] = $data->ship;
+        $user['ship'] = $data->ship."000";
         $data = array(
         'contents'=>$contents, 'user'=>$user
         );
 
         Mail::send('emails.welcome', $data, function ($message) {
             $message->from('cau2binhdinh@gmail.com', 'Đơn hàng mới');
-            $message->to('12520438@gm.uit.edu.vn')->subject('Đơn hàng mới');
+            $message->to('cau2binhdinh@gmail.com')->subject('Đơn hàng mới');
         });
 
         
@@ -93,7 +93,7 @@ class cartController extends Controller
 
             $message->from('cau2binhdinh@gmail.com', 'Learning Laravel');
 
-            $message->to('12520438@gm.uit.edu.vn')->subject('Learning Laravel test email');
+            $message->to('cau2binhdinh@gmail.com')->subject('Learning Laravel test email');
 
         });
 
