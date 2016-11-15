@@ -66,7 +66,17 @@ Giới thiệu
               <!-- Post Single - Share
               ============================================= -->
               <div class="si-share noborder clearfix">
-                
+                <div id='fb-root'/>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = &quot;//connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;appId=App_id&amp;version=v2.3&quot;;
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));</script>
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<div class='fb-comments' data-num-posts='10' data-width='690px' expr:data-href='data:blog.canonicalUrl'/>
+</b:if>
               </div><!-- Post Single - Share End -->
             </div><!-- .entry end -->
 
@@ -75,9 +85,9 @@ Giới thiệu
           ============================================= -->
           
         </div>
-
+</div>
       </div><!-- .postcontent end -->
-
+</div>
       <!-- Sidebar
       ============================================= -->
       <div class="nobottommargin col_last clearfix col-md-3">
