@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Mail;
+use Mail, Session;
 use App\User;
 use DB;
 use Cart;
+use App\Customer;
+use App\ProductBuy;
 
 class cartController extends Controller
 {
@@ -62,25 +64,76 @@ class cartController extends Controller
     {
         $catalog = DB::table('cates')->get();
         $contents = Cart::content();
-        $user['name'] = $data->name;
-        $user['phone'] = $data->phone;
-        $user['email'] = $data->email;
-        $user['address'] = $data->address;
-        $user['note'] = $data->note;
-        $user['tinh'] = $data->tinh;
+        $customer = new Customer();
+
+        $customer->fullname = $user['name'] = $data->name;
+        $customer->phone = $user['phone'] = $data->phone;
+        $customer->code = '#' . $customer->phone;
+        $customer->email = $user['email'] = $data->email;
+        $customer->address = $user['address'] = $data->address;
+        $customer->noite = $user['note'] = $data->note;
+        $customer->city = $user['tinh'] = $data->tinh;
         $user['gateway'] = $data->gateway;
-        $user['ship'] = $data->ship."000";
-        $data = array(
-        'contents'=>$contents, 'user'=>$user
-        );
-
-        Mail::send('emails.welcome', $data, function ($message) {
-            $message->from('cau2binhdinh@gmail.com', 'Đơn hàng mới');
-            $message->to('cau2binhdinh@gmail.com')->subject('Đơn hàng mới');
-        });
-
+        $customer->ship = $user['ship'] = $data->ship."000";
         
-        return view('products.done', ['contents'=>$contents, 'user'=>$user, 'catalog'=>$catalog]);
+        $total = 0;
+        foreach ($contents as $val) {
+            $total = $total + $val->subtotal;
+        }
+
+        $customer->price = $total;
+        $customer->active = md5(uniqid());
+        $customer->viewed = 0;
+
+        $productArr = array();
+
+        foreach ($contents as $cart) {
+            array_push($productArr, ['product' => $cart->id, 'qty' => $cart->qty]);
+        }
+        $customer->product = json_encode($productArr);
+        if ($customer->save()) {
+            $id = $customer->id;
+            $data = array(
+            'contents'=>$contents, 'user'=>$user, 'ids' => $id
+            );
+            
+            Mail::send('emails.welcome', $data, function ($message) {
+                $message->from('teamchich26@gmail.com', 'Đơn hàng mới');
+                $message->to('teamchich26@gmail.com')->subject('Đơn hàng mới');
+            });
+            return view('products.done', ['contents'=>$contents, 'user'=>$user, 'catalog'=>$catalog]);
+        }  
+        
+    }
+
+
+    /*Confirm Cart*/
+    public function getConfirmShoppingCart($id)
+    {
+        $customer = Customer::find($id);
+        if ($customer) {
+            $customer->active = 1;
+            if ($customer->save()) {
+                $message = ['level' => 'success', 'info' => 'Thông báo :', 'flash_message' => 'Đơn đặt hàng của bạn đã được lưu'];
+                $shoppingCart = Cart::content();
+                foreach ($shoppingCart as $cart) {
+                    $productBuy = new ProductBuy();
+                    $productBuy->product_id = $cart->id;
+                    $productBuy->quantity = $cart->qty;
+                    $productBuy->buy_day = date("Y-m-d");
+                    $productBuy->save();
+                }
+                Cart::destroy();
+                Session::set('code_customer', $customer->code);
+            }
+            $message = ['level' => 'danger', 'info' => 'Thông báo :', 'flash_message' => 'Có lỗi khi xác nhận đơn hàng, vui lòng check mail'];
+        }else{
+            $message = ['level' => 'danger', 'info' => 'Thông báo :', 'flash_message' => 'Có lỗi khi xác nhận đơn hàng, vui lòng check mail'];
+        }
+        echo "<script>
+            alert('Xác nhận đơn hàng thành công, Cảm ơn bạn đã tin tưởng shop !!');
+            window.location = '".url('/')."'
+        </script>";
     }
 
     public function mail()
@@ -91,9 +144,9 @@ class cartController extends Controller
 
         Mail::send('emails.welcome', $data, function ($message) {
 
-            $message->from('cau2binhdinh@gmail.com', 'Learning Laravel');
+            $message->from('teamchich26@gmail.com', 'Learning Laravel');
 
-            $message->to('cau2binhdinh@gmail.com')->subject('Learning Laravel test email');
+            $message->to('teamchich26@gmail.com')->subject('Learning Laravel test email');
 
         });
 

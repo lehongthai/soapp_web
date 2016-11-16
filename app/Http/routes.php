@@ -62,6 +62,7 @@ Route::get('thanh-toan', 'cartController@checkout');
 Route::get('so-huu&id={id}&soluong={soluong}&color={color}', 'cartController@soHuu');
 
 Route::post('create-order', 'cartController@createOrder');
+Route::get('xac-nhan/{id?}',['as' => 'getConfirmShoppingCart', 'uses' => 'cartController@getConfirmShoppingCart']);
 
 Route::get('mail', 'cartController@mail');
 
@@ -147,6 +148,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
 		Route::get('bannertop', ['as' => 'admin.image.getBannerTop', 'uses' => 'ImageController@getBannerTop']);
 		Route::get('edit/{id?}', ['as' => 'admin.image.getEdit', 'uses' => 'ImageController@getEdit']);
 		Route::post('edit/{id?}', ['as' => 'admin.image.postEdit', 'uses' => 'ImageController@postEdit']);
+	});
+
+	Route::group(['prefix' => 'customer'], function () {
+		Route::get('list', ['as' => 'admin.customer.list', 'uses' => 'CustomerController@getList']);
+		Route::get('delete/{id?}', ['as' => 'admin.customer.getDelete', 'uses' => 'CustomerController@getDelete']);
+		Route::get('active/{id?}', ['as' => 'admin.customer.getActive', 'uses' => 'CustomerController@getActive']);
+		Route::get('view/{id?}', ['as' => 'admin.customer.getView', 'uses' => 'CustomerController@getView']);
 	});
 });
 Route::auth();

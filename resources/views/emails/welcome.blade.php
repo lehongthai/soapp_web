@@ -59,6 +59,6 @@
     </tfoot>
   </table>
 </div>
-
+<p>Vui lòng click vào đường link bên dưới để xác nhận đơn hàng <br> <a href="{!! url('/') . '/xac-nhan/' . $ids !!}">Click vào đây</a></p>
 </body>
 </html>

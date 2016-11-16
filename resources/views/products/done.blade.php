@@ -19,7 +19,7 @@ Giỏ hàng
     <h1 style="color:#0065BF">
       
       <span class="btn-back">Về trang chủ</span> Đặt hàng thành công
-      
+      <h5 class="text-center">Vui lòng check mail để xác nhận đơn hàng của bạn</h5>
     </h1>
   </a>
   <div class=" clearfix"> 
