@@ -155,12 +155,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
 	});
 
 	Route::group(['prefix' => 'customer'], function () {
-		Route::get('list', ['as' => 'admin.customer.list', 'uses' => 'CustomerController@getList']);
-		Route::get('delete/{id?}', ['as' => 'admin.customer.getDelete', 'uses' => 'CustomerController@getDelete']);
-		Route::get('active/{id?}', ['as' => 'admin.customer.getActive', 'uses' => 'CustomerController@getActive']);
-		Route::get('view/{id?}', ['as' => 'admin.customer.getView', 'uses' => 'CustomerController@getView']);
+		Route::get('list', ['as' => 'admin.customer.list', 'uses' => 'customerController@getList']);
+		Route::get('delete/{id?}', ['as' => 'admin.customer.getDelete', 'uses' => 'customerController@getDelete']);
+		Route::get('active/{id?}', ['as' => 'admin.customer.getActive', 'uses' => 'customerController@getActive']);
+		Route::get('view/{id?}', ['as' => 'admin.customer.getView', 'uses' => 'customerController@getView']);
 		Route::get('getEmail', ['as' => 'admin.customer.getEmail', 'uses' => 'customerController@getListEmail']);
-		Route::get('delete/{id?}', ['as' => 'admin.customer.getDeleteEmail', 'uses' => 'customerController@getDeleteEmail']);
+		Route::get('deleteEmail/{id?}', ['as' => 'admin.customer.getDeleteEmail', 'uses' => 'customerController@getDeleteEmail']);
 	});
 });
 Route::auth();

@@ -153,9 +153,7 @@
                             </ul>
                             <!-- /.child_menu -->
                         </li>
-                        <li>
-                            <a href="{!! URL::route('admin.customer.list') !!}"><i class="fa fa-users fa-fw"></i> Khách Hàng</a>
-                        </li>
+                        
                         <li>
                             <a href="#"><i class="fa fa-drivers-license"></i>Thông tin<span class="fa arrow"></span></a>
                             <ul class="nav child_menu">
@@ -173,6 +171,9 @@
                             <ul class="nav child_menu">
                                 <li>
                                     <a href="{{url('')}}/admin/customer/getEmail">Email</a>
+                                </li>
+                                <li>
+                                    <a href="{!! URL::route('admin.customer.list') !!}">Danh Sách</a>
                                 </li>
                             </ul>
                             <!-- /.child_menu -->

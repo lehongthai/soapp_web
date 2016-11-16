@@ -39,7 +39,7 @@
                                 @elseif($customer->viewed == 0)
                                 <td><a href="{!! route('admin.customer.getView', $customer->id) !!}">Chưa</a></td>
                                 @endif
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return confirm_delete('Bạn chắc chắn xóa !')" href="{!! route('admin.customer.getDelete', $customer->id) !!}"> Delete</a></td> 
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return confirm_delete('Bạn chắc chắn xóa !')" href="{!! URL::route('admin.customer.getDelete', $customer->id) !!}"> Delete</a></td>
                             </tr>
                         @endforeach()
                         </tbody>
