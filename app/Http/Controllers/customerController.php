@@ -42,7 +42,7 @@ class customerController extends Controller {
 	{
 		$customer = Customer::find($id);
 		if (isset($customer) && $customer != NULL) {
-			$customer->viewed = 0;
+			$customer->viewed = 1;
 			if ($customer->save()) {
 				$message = ['level' => 'success', 'flash_message' => 'Kích hoạt thành công khách hàng <b>'.$customer->fullname.'</b>'];
 			}else{

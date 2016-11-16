@@ -86,10 +86,6 @@ class cartController extends Controller
         $customer->viewed = 0;
 
         $productArr = array();
-        Mail::send('emails.welcome', $data, function ($message) {
-            $message->from('dochoitinhducshop@gmail.com', 'Đơn hàng mới');
-            $message->to('dochoitinhducshop@gmail.com')->subject('Đơn hàng mới');
-        });
 
         foreach ($contents as $cart) {
             array_push($productArr, ['product' => $cart->id, 'qty' => $cart->qty]);
@@ -148,9 +144,9 @@ class cartController extends Controller
 
         Mail::send('emails.welcome', $data, function ($message) {
 
-            $message->from('dochoitinhducshop@gmail.com', 'Learning Laravel');
+            $message->from('teamchich26@gmail.com', 'Learning Laravel');
 
-            $message->to('dochoitinhducshop@gmail.com')->subject('Learning Laravel test email');
+            $message->to('teamchich26@gmail.com')->subject('Learning Laravel test email');
 
         });
 
