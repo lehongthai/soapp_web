@@ -39,6 +39,7 @@
 
 <meta property="og:url" content="{{url('')}}" />
 <meta property="og:site_name" content="{{url('')}}" />
+<meta content='1674300986121027' property='fb:app_id'/>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport' />
 
@@ -1027,7 +1028,7 @@ $('#menu_xs ul a span').click(function(e) {
                 <div class="widget subscribe-widget clearfix">
                     <h5 style='font-weight:bold; font-size:15px;'>Đăng kí email để nhận ngay ưu đãi lớn !</h5>
                     <div id="widget-subscribe-form-result" data-notify-type="success" data-notify-msg=""></div>
-                    <form accept-charset="UTF-8" id="widget-subscribe-form" action="{{url('')}}" role="form" method="post" class="nobottommargin">
+                    <form accept-charset="UTF-8" id="widget-subscribe-form" role="form" class="nobottommargin">
                         <div class="input-group divcenter">
                             <span class="input-group-addon"><i class="icon-email2"></i></span>
                             <input name="form_type" type="hidden" value="customer">
@@ -1038,25 +1039,13 @@ $('#menu_xs ul a span').click(function(e) {
                             <input type="email" id='newsletter-email-3' name="contact[email]" class="form-control required email" placeholder="Nhập email của bạn">
                             <!--<input type="text" id="newsletter-email" name="contact[email]" placeholder="nhập email của bạn.." class="form-control">-->                                    
                             <span class="input-group-btn">
-                                <button class="btn btn-success btnSignup-3" type="submit">Đăng ký</button>
+                                <button class="btn btn-success btnSignup-3" type="button">Đăng ký</button>
                             </span>
                         </div>
                     </form>
                 </div>
                 <script>
-                    $('.btnSignup-3').click(function(e){
-                        var regex = /\S+@\S+\.\S+/;
-                        var $arrEmail = $('#newsletter-email-3').val().split('@');
-                        //alert($arrEmail[1]);
-                        $('#newsletter-last-name').val($arrEmail[0]);
-                        if ($arrEmail[1].indexOf('.')>-1) {
-                            alert('Đăng ký nhận email thành công');
-                        }
-                        else {
-                            alert('Vui lòng nhập đúng địa chỉ email');
-                            e.preventDefault();
-                        }
-                    });
+                   
                 </script>
                 
 
@@ -1634,6 +1623,35 @@ jQuery('.fchat').toggle('slow');
   <div class="fb-page" data-tabs="messages" data-href="{{$shop->facebook}}" data-width="250" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
   </div>
   </div>
+  <!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Đăng ký email để nhận khuyến mãi thành công!</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>  
+  <script>
+    $('.btnSignup-3')
+    .click(function (e) {
+        var email = $('#newsletter-email-3').val();
+        $.get('get-mail='+email, function(data){
+            if(data=='1')
+            {
+              $('#myModal2').modal();
+            }
+          });
+    });
+</script>
 </body>
 
 
