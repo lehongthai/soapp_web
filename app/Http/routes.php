@@ -20,6 +20,10 @@ Route::get('/gioi-thieu-san-pham', 'viewController@gtsp');
 
 Route::get('/bai-viet', 'viewController@post');
 
+Route::get('/tag={tag}', 'viewController@tag');
+
+Route::get('/get-mail={mail}', 'viewController@getMail');
+
 Route::get('/post={alias}&id={id}', 'viewController@postItem');
 
 Route::post('/search', 'viewController@search');
@@ -147,6 +151,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
 		Route::get('bannertop', ['as' => 'admin.image.getBannerTop', 'uses' => 'ImageController@getBannerTop']);
 		Route::get('edit/{id?}', ['as' => 'admin.image.getEdit', 'uses' => 'ImageController@getEdit']);
 		Route::post('edit/{id?}', ['as' => 'admin.image.postEdit', 'uses' => 'ImageController@postEdit']);
+	});
+	Route::group(['prefix' => 'customer'], function () {
+		Route::get('getEmail', ['as' => 'admin.customer.getEmail', 'uses' => 'customerController@getListEmail']);
+		Route::get('delete/{id?}', ['as' => 'admin.customer.getDeleteEmail', 'uses' => 'customerController@getDeleteEmail']);
 	});
 });
 Route::auth();

@@ -858,13 +858,13 @@
 
                                     <div class="heading-block topmargin-lg">
                                         <h3><strong>TƯNG BỪNG MUA SẮM !</strong></h3>
-                                        <span>Đăng kí để nhận ưu đãi lên đến 15% hôm nay!</span>
+                                        <span>Đăng kí để nhận ưu đãi lên đến 5% hôm nay!</span>
                                     </div>
 
-                                    <p> Đừng bỏ lỡ cơ hội mua hàng để được <strong>ƯU ĐÃI </strong>lên đến 33% duy nhất trong năm nay! <strong>SEXTOY GIÁ GỐC </strong>luôn cam kết đem đến cho khách hàng thân yêu những sản phẩm tốt nhất, chất lượng tuyệt vời nhất và giá cả hợp lý nhất. Hãy ghé thăm website : <a href="index.html" target="_blank"><strong>SEXTOY GIÁ GỐC</strong></a> để thoả sức mua sắm..!</p>
+                                    <p> Đừng bỏ lỡ cơ hội mua hàng để được <strong>ƯU ĐÃI </strong> đến 5% duy nhất trong năm nay! <strong>SEXTOY GIÁ GỐC </strong>luôn cam kết đem đến cho khách hàng thân yêu những sản phẩm tốt nhất, chất lượng tuyệt vời nhất và giá cả hợp lý nhất. Hãy ghé thăm website : <a href="index.html" target="_blank"><strong>SEXTOY GIÁ GỐC</strong></a> để thoả sức mua sắm..!</p>
 
                                     <div id="widget-subscribe-form3-result" data-notify-type="success" data-notify-msg=""></div>
-                                    <form accept-charset="UTF-8" id="widget-subscribe-form3" action="{{url('')}}" role="form" method="get">
+                                    <form accept-charset="UTF-8" id="widget-subscribe-form3" role="form" >
                                         <div class="input-group" style="max-width:400px;">
                                             <span class="input-group-addon"><i class="icon-email2"></i></span>
                                             <input name="form_type" type="hidden" value="customer">
@@ -874,30 +874,11 @@
                                             <input type="hidden" id="newsletter-last-name" name="contact[last_name]" value="Bản tin">
                                             <input type="email" name="contact[email]" id='newsletter-email-2' class="form-control required email" placeholder="Nhập email của bạn">
                                             <span class="input-group-btn">
-                                                <button class="btn btn-danger btnSignup-2" type="submit">Đăng ký</button>
+                                                <button class="btn btn-danger btnSignup-2" type="button" onclick="getMail();" >Đăng ký</button>
                                             </span>
                                         </div>
                                     </form>
-                                    <script>
-                                        $('.btnSignup-2')
-                                        .click(function (e) {
-                                            var regex = /\S+@\S+\.\S+/;
-                                            var $arrEmail = $('#newsletter-email-2')
-                                            .val()
-                                            .split('@');
-                                            //alert($arrEmail[1]);
-                                            $('#newsletter-last-name')
-                                            .val($arrEmail[0]);
-                                            if ($arrEmail[1].indexOf('.') > -1) {
-                                                alert('Đăng ký nhận email thành công');
-                                            } else {
-                                                alert('Vui lòng nhập đúng địa chỉ email');
-                                                e.preventDefault();
-                                            }
-                                        });
-                                    </script>
-                                    <script>
-                                    </script>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -117,6 +117,14 @@ class viewController extends Controller
 		return view('posts.allPost', ['catalog'=>$catalog, 'posts'=>$posts]);
 	}
 
+	public function tag($tag)
+	{
+		$catalog = DB::table('cates')->get();
+		$tag = DB::table('tags')->where('name', $tag)->first();
+		$posts = DB::table('posts')->where('tags', $tag->id)->get();
+		return view('posts.allPost', ['catalog'=>$catalog, 'posts'=>$posts]);
+	}
+
 	public function postItem($alias, $id)
 	{
 		$catalog = DB::table('cates')->get();
@@ -131,6 +139,18 @@ class viewController extends Controller
 		$catalog = DB::table('cates')->get();
 		$product = DB::table('products')->where('id', $id)->first();
 		return view('products.item', ['catalog'=>$catalog, 'product'=>$product]);
+	}
+
+	public function getMail(Request $request, $mail)
+	{
+		$request->session()->put('isAdd', '1');
+		$check = DB::table('customer_email')->insert(
+		    ['email' => $mail]
+		);
+		if($check)
+		{
+			return "1";
+		}
 	}
 
 }

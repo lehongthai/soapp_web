@@ -75,8 +75,8 @@ class cartController extends Controller
         );
 
         Mail::send('emails.welcome', $data, function ($message) {
-            $message->from('cau2binhdinh@gmail.com', 'Đơn hàng mới');
-            $message->to('cau2binhdinh@gmail.com')->subject('Đơn hàng mới');
+            $message->from('dochoitinhducshop@gmail.com', 'Đơn hàng mới');
+            $message->to('dochoitinhducshop@gmail.com')->subject('Đơn hàng mới');
         });
 
         
@@ -91,9 +91,9 @@ class cartController extends Controller
 
         Mail::send('emails.welcome', $data, function ($message) {
 
-            $message->from('cau2binhdinh@gmail.com', 'Learning Laravel');
+            $message->from('dochoitinhducshop@gmail.com', 'Learning Laravel');
 
-            $message->to('cau2binhdinh@gmail.com')->subject('Learning Laravel test email');
+            $message->to('dochoitinhducshop@gmail.com')->subject('Learning Laravel test email');
 
         });
 

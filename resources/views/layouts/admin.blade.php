@@ -165,6 +165,15 @@
                             </ul>
                             <!-- /.child_menu -->
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-address-book-o"></i>Thông tin khách hàng<span class="fa arrow"></span></a>
+                            <ul class="nav child_menu">
+                                <li>
+                                    <a href="{{url('')}}/admin/customer/getEmail">Email</a>
+                                </li>
+                            </ul>
+                            <!-- /.child_menu -->
+                        </li>
                             </ul>
                         </div>
                         
