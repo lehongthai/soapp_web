@@ -12,17 +12,17 @@
 
     <!-- Bootstrap core CSS -->
 
-    <link href="<?= asset('') ?>public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= asset(''); ?>public/admin/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="<?= asset('') ?>public/admin/fonts/css/font-awesome.min.css" rel="stylesheet">
-    <link href="<?= asset('') ?>public/admin/css/animate.min.css" rel="stylesheet">
+    <link href="<?= asset(''); ?>public/admin/fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?= asset(''); ?>public/admin/css/animate.min.css" rel="stylesheet">
 
     <!-- Custom styling plus plugins -->
-    <link href="<?= asset('') ?>public/admin/css/custom.css" rel="stylesheet">
-    <link href="<?= asset('') ?>public/admin/css/icheck/flat/green.css" rel="stylesheet">
+    <link href="<?= asset(''); ?>public/admin/css/custom.css" rel="stylesheet">
+    <link href="<?= asset(''); ?>public/admin/css/icheck/flat/green.css" rel="stylesheet">
 
 
-    <script src="<?= asset('') ?>public/admin/js/jquery.min.js"></script>
+    <script src="<?= asset(''); ?>public/admin/js/jquery.min.js"></script>
 
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
@@ -45,7 +45,7 @@
         <div id="wrapper">
             <div id="login" class="animate form">
                 <section class="login_content">
-                    <form role="form" method="POST" action="{{ url('/login') }}">
+                    <form role="form" method="POST" action="{{ url('auth/login') }}">
                     {!! csrf_field() !!}
                         <h1>Login Form</h1>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" >

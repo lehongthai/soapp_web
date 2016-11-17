@@ -163,6 +163,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
 		Route::get('deleteEmail/{id?}', ['as' => 'admin.customer.getDeleteEmail', 'uses' => 'customerController@getDeleteEmail']);
 	});
 });
+Route::post('auth/login', ['as' => 'admin.postLogin', 'uses' => 'Auth\AuthController@postLogin']);
+Route::post('users/register', ['as' => 'admin.register', 'uses' => 'UserController@postAdd']);
+Route::get('active-user/{id?}',['as' => 'getConfirmUser', 'uses' => 'UserController@getConfirmUser']);
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
