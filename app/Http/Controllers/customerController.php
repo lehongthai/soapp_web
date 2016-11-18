@@ -81,5 +81,20 @@ class customerController extends Controller {
 		return redirect()->route('admin.customer.getEmail')->with($notic);
 	}
 
+	public function getActive($id = 0)
+	{
+		$customer = Customer::find($id);
+		if (isset($customer) && $customer != NULL) {
+			$customer->active = 0;
+			if ($customer->save()) {
+				$message = ['level' => 'success', 'flash_message' => 'Kích hoạt thành công khách hàng <b>'.$customer->lastname.'</b>'];
+			}else{
+				$message = ['level' => 'danger', 'flash_message' => 'Kích hoạt không thành công khách hàng <b>'.$customer->lastname.'</b>'];
+			}
+		}else{
+			$message = ['level' => 'danger', 'flash_message' => 'Không có thông tin'];
+		}
 
+		return redirect()->route('admin.customer.list')->with($message);
+	}
 }
