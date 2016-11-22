@@ -2,7 +2,7 @@
 @section('body_right')
 <form action="{!! url('admin/product/edit') !!}" method="POST" name="editProduct">
                     <!-- /.col-lg-12 -->
-                    <div class="col-lg-7" style="padding-bottom:120px">
+                    <div class="col-lg-9" style="padding-bottom:120px">
                         <input type="hidden" name="_token" id="input" class="form-control" value="{!! csrf_token() !!}">
                         <input type="hidden" name="id" class="form-control" value="{!! $data['id'] !!}">
                         <div class="form-group">
@@ -90,7 +90,7 @@
                             <button type="reset" class="btn btn-default">Reset</button>
                     </div>
                     <div class="col-lg-1"></div>
-                    <div class="col-lg-4" style="padding-top:22px" id="addImage">
+                    <div class="col-lg-2" style="padding-top:22px" id="addImage">
                         <button style="margin-bottom:10px" type="button" class="btn btn-success">Thêm ảnh chi tiết</button>
                         @foreach($imgDetail as $key => $img)
                         <div class="col-xs-12 thumbnail" id="thumb{!! $img['id'] !!}">

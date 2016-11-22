@@ -5,7 +5,7 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html dir="ltr" lang="en-US"> <!--<![endif]-->
 
-<!-- Mirrored from sextoygiagoc.com/gioi-thieu-san-pham by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2016 09:18:57 GMT -->
+
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
         <?php 
@@ -13,6 +13,7 @@
         $shop = DB::table('shop')->first();
         $banner = DB::table('images')->get();
         $seo = DB::table('abouts')->first();
+        header('X-Frame-Options: GOFORIT'); 
         ?>
     <link rel="shortcut icon" href="{{$banner[3]->image_link}}" type="image/png" />
     <meta charset="utf-8" />
@@ -26,20 +27,17 @@
     
 
     <!-- Product meta ================================================== -->
-    
 
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{$seo->title}}" />
-  
-    <meta property="og:image" content="{{$banner[2]->image_link}}" />
-
-
-<meta name="keywords" content="{{$seo->meta_key}}">
-
-<meta property="og:url" content="{{url('')}}" />
+  <meta property="og:url" content="{{url('')}}" />
 <meta property="og:site_name" content="{{url('')}}" />
-<meta content='1674300986121027' property='fb:app_id'/>
+<meta property="fb:app_id" content="1820603798154432"/>
+<meta property="fb:admins" content="100002730776444">
+<meta property="og:url" content="{{url('')}}" />
+<meta property="og:title" content="{{$seo->title}}" />
+<meta property="og:type" content="Website" />
+<meta property="og:description" content="{{$seo->meta_desc}}" />
+<meta property="og:image" content="{{$banner[2]->image_link}}" />
+
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport' />
 
@@ -71,32 +69,8 @@
         }
 
     </style>
-    <script>
-var Bizweb = Bizweb || {};
-Bizweb.store = 'en-sextoygiagoc.bizwebvietnam.net';
-Bizweb.theme = {"id":111253,"name":"EGA Luxury Fashion","role":"main","previewable":true,"processing":false,"created_on":"2016-05-18T15:27:11Z","modified_on":null}
-Bizweb.template = 'page';
-</script>
+    
 
-                <script>
-                //<![CDATA[
-                      (function() {
-                        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
-                        s.src = '{{url('')}}/public/assets/bizweb_stats8e0e.js?v=8';
-                        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-                      })();
-
-                //]]>
-                </script>
-
-
-
-
-
-<!-- Google Tag Manager -->
-<noscript>
-<iframe src='http://www.googletagmanager.com/ns.html?id=GTM-MS77Z9' height='0' width='0' style='display:none;visibility:hidden'></iframe>
-</noscript>
 
 <!-- END Fonts -->
 
@@ -167,6 +141,23 @@ Bizweb.template = 'page';
 </head>
 
 <body class="stretched no-transition" >
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1820603798154432',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="{{url('')}}/public/assets/addthis_widget.js#pubid=ra-56fb54ea6647f103"></script>
     
@@ -188,12 +179,12 @@ Bizweb.template = 'page';
              foreach ($catalog as $ca) {
                 if($ca->parent_id == 0)
                 {
-                    echo "<li class=''><a class='menu' href='".$domain."catalog&slug={$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
+                    echo "<li class=''><a class='menu' href='".$domain."phan-loai/{$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
                     foreach($catalog as $sub_ca)
                     {
                         if($sub_ca->parent_id == $ca->id)
                         {
-                            echo "<li class=''><a class='sub-menu' href='".$domain."navigation&slug={$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
+                            echo "<li class=''><a class='sub-menu' href='".$domain."loai/{$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
                         }
                         
                     }
@@ -614,7 +605,7 @@ $('#menu_xs ul a span').click(function(e) {
 
                  foreach ($catalog as $ca) {
                     if($ca->parent_id == 0){
-                        echo "<li class=' menu'><a class='menu' href='".$domain."catalog={$ca->alias}'><img src='".$ca->image_link."' alt='".$ca->name."'/>{$ca->name}<i class='icon-angle-right arrow'></i></a><ul class='submenu'>";
+                        echo "<li class=' menu'><a class='menu' href='".$domain."phan-loai/{$ca->alias}'><img src='".$ca->image_link."' alt='".$ca->name."'/>{$ca->name}<i class='icon-angle-right arrow'></i></a><ul class='submenu'>";
                         $i=0;
                         foreach($catalog as $sub_ca)
                         {
@@ -626,7 +617,7 @@ $('#menu_xs ul a span').click(function(e) {
                             if($sub_ca->parent_id == $ca->id)
                             {
                                 $i++;
-                                echo "<li class=''><a class='sub-menu' href='".$domain."navigation&slug={$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
+                                echo "<li class=''><a class='sub-menu' href='".$domain."loai/{$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
                             }
                             if($i==8)
                             {
@@ -782,12 +773,12 @@ $('#menu_xs ul a span').click(function(e) {
              foreach ($catalog as $ca) {
                 if($ca->parent_id == 0)
                 {
-                    echo "<li class=''><a class='menu' href='".$domain."catalog&slug={$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
+                    echo "<li class=''><a class='menu' href='".$domain."phan-loai/{$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
                     foreach($catalog as $sub_ca)
                     {
                         if($sub_ca->parent_id == $ca->id)
                         {
-                            echo "<li class=''><a class='sub-menu' href='".$domain."navigation&slug={$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
+                            echo "<li class=''><a class='sub-menu' href='".$domain."loai/{$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
                         }
                         
                     }
@@ -833,10 +824,10 @@ $('#menu_xs ul a span').click(function(e) {
                                 <button type="submit" class='button'>Tìm kiếm</button>
                                 <ul class="header-tag clearfix hidden-sm hidden-xs">
                                     <li class="border-none"><strong>Xu hướng tìm kiếm:</strong></li>
-                                    <li><a href="{{url('')}}/navigation&slug=gel-titan-developpe-sex">Gel titan </a></li>
-                                    <li><a href="{{url('')}}/catalog=bao-cao-su">Bao cao su</a></li>
-                                    <li><a href="{{url('')}}/navigation&slug=am-dao-gia-den-pin">âm đạo giả đèn pin</a></li>
-                                    <li class="border-none"><a href="{{url('')}}/navigation&slug=duong-vat-gia-cam-tay">dương vật giả cầm tay</a></li>
+                                    <li><a href="{{url('')}}/loai/gel-titan-developpe-sex">Gel titan </a></li>
+                                    <li><a href="{{url('')}}/phan-loai/bao-cao-su">Bao cao su</a></li>
+                                    <li><a href="{{url('')}}/loai/am-dao-gia-den-pin">âm đạo giả đèn pin</a></li>
+                                    <li class="border-none"><a href="{{url('')}}/loai/duong-vat-gia-cam-tay">dương vật giả cầm tay</a></li>
                                 </ul>
                             </form>
                             <div class="kmhot hidden-xs hidden-sm">
@@ -959,7 +950,7 @@ $('#menu_xs ul a span').click(function(e) {
                                 $thongTin = DB::table('posts')->where('cate_id', 2)->inRandomOrder()->take(6)->get();
                             ?>
                             @foreach($thongTin as $tin)
-                            <li><a href="{{url('')}}/post={{$tin->title}}&id={{$tin->id}}">{{$tin->title}}</a></li>
+                            <li><a href="{{url('')}}/post={{$tin->title}}id{{$tin->id}}">{{$tin->title}}</a></li>
                             @endforeach
 
 
@@ -984,7 +975,7 @@ $('#menu_xs ul a span').click(function(e) {
                             <div class="spost clearfix">
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h4><a href="{{url('')}}/post={{$tin->title}}&id={{$tin->id}}">{{$tin->title}}</a></h4>
+                                        <h4><a href="{{url('')}}/post={{$tin->title}}id{{$tin->id}}">{{$tin->title}}</a></h4>
                                     </div>
                                     <ul class="entry-meta">
                                         <li>{{$tin->created_at}}</li>
@@ -1090,7 +1081,7 @@ $('#menu_xs ul a span').click(function(e) {
         <div class="container clearfix">
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12">
-                    © 2014 Copyright. All rights reserved <a href="http://sextoy68.blogspot.com/" target="_blank">SEXTOY GIÁ GỐC</a>
+                    © 2014 Copyright. All rights reserved <a href="{{$shop->facebook}}" target="_blank">Do choi tinh duc</a>
                     <br>
                     <div class="copyright-links">
                         
@@ -1153,7 +1144,7 @@ $('#menu_xs ul a span').click(function(e) {
                             
 
                             
-                            <a href="https://www.tumblr.com/blog/sextoygiagoc" class="social-icon si-small si-borderless si-linkedin">
+                            <a href="#" class="social-icon si-small si-borderless si-linkedin">
                                 <i class="icon-linkedin"></i>
                                 <i class="icon-linkedin"></i>
                             </a>
@@ -1652,6 +1643,17 @@ jQuery('.fchat').toggle('slow');
           });
     });
 </script>
+<style type="text/css">
+    #callPhone{
+        position: fixed;
+        bottom: 0px;
+        left: 3px;
+        z-index: 110000;
+    }
+</style>
+<div id="callPhone" class="hidden-lg hidden-md">
+    <a href="tel:{{$shop->tel}}"><img src="https://cdn2.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_Phone.png" style="width: 60px"></a>
+</div>
 </body>
 
 

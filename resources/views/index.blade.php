@@ -33,7 +33,7 @@
 
                  foreach ($catalog as $ca) {
                     if($ca->parent_id == 0){
-                        echo "<li class=' menu'><a class='menu' href='".$domain."catalog={$ca->alias}'><img src='".$ca->image_link."' alt='".$ca->name."'/>{$ca->name}<i class='icon-angle-right arrow'></i></a><ul class='submenu'>";
+                        echo "<li class=' menu'><a class='menu' href='".$domain."phan-loai/{$ca->alias}'><img src='".$ca->image_link."' alt='".$ca->name."'/>{$ca->name}<i class='icon-angle-right arrow'></i></a><ul class='submenu'>";
                         $i=0;
                         foreach($catalog as $sub_ca)
                         {
@@ -45,7 +45,7 @@
                             if($sub_ca->parent_id == $ca->id)
                             {
                                 $i++;
-                                echo "<li class=''><a class='sub-menu' href='".$domain."navigation&slug={$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
+                                echo "<li class=''><a class='sub-menu' href='".$domain."loai/{$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
                             }
                             if($i==8)
                             {
@@ -260,7 +260,7 @@
                             <div class="product">
                                 <div class="product-item">
                                     <div class="product-image">
-                                        <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">
+                                        <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">
 
                                             <img alt='{{$prod->name}}' data-srcset="{{$prod->image_link}}" src="{{$prod->image_link}}" />
 
@@ -273,13 +273,13 @@
                                     </div>
                                     <div class="product-desc center">
                                         <div class="product-title">
-                                            <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3>
+                                            <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3>
                                         </div>
                                         <div class="product-price">
                                             <ins> {{number_format($prod->price, 0,",",".")}}₫ </ins>
                                         </div>
                                         <div class="product-cart">
-                                            <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                            <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                         </div>
                                     </div>
                                     
@@ -376,20 +376,20 @@
                                         @foreach($tab as $prod)
                                             <div class="product col-md-2 clearfix">
                                                 <div class="product-image">
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
 
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
                                                 </div>
                                                 <div class="product-desc">
                                                     <div class="product-title">
-                                                        <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3>
+                                                        <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3>
                                                     </div>
                                                     <div class="product-price">
                                                         <ins>{{number_format($prod->price, 0,",",".")}} </ins>
 
                                                     </div>
                                                     <div class="product-cart">
-                                                        <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                                        <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -412,20 +412,20 @@
                                         @foreach($tab as $prod)
                                             <div class="product col-md-2 clearfix">
                                                 <div class="product-image">
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
 
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
                                                 </div>
                                                 <div class="product-desc">
                                                     <div class="product-title">
-                                                        <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3>
+                                                        <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3>
                                                     </div>
                                                     <div class="product-price">
                                                         <ins>{{number_format($prod->price, 0,",",".")}} </ins>
 
                                                     </div>
                                                     <div class="product-cart">
-                                                        <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                                        <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -448,20 +448,20 @@
                                         @foreach($tab as $prod)
                                             <div class="product col-md-2 clearfix">
                                                 <div class="product-image">
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
 
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
                                                 </div>
                                                 <div class="product-desc">
                                                     <div class="product-title">
-                                                        <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3>
+                                                        <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3>
                                                     </div>
                                                     <div class="product-price">
                                                         <ins>{{number_format($prod->price, 0,",",".")}} </ins>
 
                                                     </div>
                                                     <div class="product-cart">
-                                                        <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                                        <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -484,20 +484,20 @@
                                         @foreach($tab as $prod)
                                             <div class="product col-md-2 clearfix">
                                                 <div class="product-image">
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
 
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
                                                 </div>
                                                 <div class="product-desc">
                                                     <div class="product-title">
-                                                        <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3>
+                                                        <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3>
                                                     </div>
                                                     <div class="product-price">
                                                         <ins>{{number_format($prod->price, 0,",",".")}} </ins>
 
                                                     </div>
                                                     <div class="product-cart">
-                                                        <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                                        <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -518,20 +518,20 @@
                                         @foreach($tab as $prod)
                                             <div class="product col-md-2 clearfix">
                                                 <div class="product-image">
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
 
-                                                    <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
+                                                    <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}"><img src="{{$prod->image_link}}" alt="{{$prod->name}}"></a>
                                                 </div>
                                                 <div class="product-desc">
                                                     <div class="product-title">
-                                                        <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3>
+                                                        <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3>
                                                     </div>
                                                     <div class="product-price">
                                                         <ins>{{number_format($prod->price, 0,",",".")}} </ins>
 
                                                     </div>
                                                     <div class="product-cart">
-                                                        <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                                        <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -560,7 +560,7 @@
                             <div class="product">
                                 <div class="product-item">
                                     <div class="product-image">
-                                        <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">
+                                        <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">
 
                                             <img alt='{{$prod->name}}' data-srcset="{{$prod->image_link}}" />
 
@@ -573,13 +573,13 @@
                                     </div>
                                     <div class="product-desc center">
                                         <div class="product-title">
-                                            <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3>
+                                            <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3>
                                         </div>
                                         <div class="product-price">
                                             <ins> {{number_format($prod->price, 0,",",".")}}₫ </ins>
                                         </div>
                                         <div class="product-cart">
-                                            <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                            <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                         </div>
                                     </div>
                                     
@@ -650,17 +650,17 @@
                                             $tab = DB::table('products')->whereIn('cate_id', $array)->get();
                                         ?>
                                 @foreach($tab as $prod)
-                                    <div class="product">
+                                    <div class="product col-md-2">
                                         <div class="product-item">
                                             <div class="product-image">
-                                                <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">
+                                                <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">
 
                                                     <img alt='{{$prod->alt}}' data-srcset="{{$prod->image_link}}" />
 
 
                                                 </a>
 
-                                                <a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">
+                                                <a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">
 
                                                     <img alt='{{$prod->alt}}' data-srcset="{{$prod->image_link}}" />
 
@@ -671,14 +671,14 @@
                                             </div>
                                             <div class="product-desc center">
                                                 <div class="product-title">
-                                                    <h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">Kem bôi kéo dài thời gian quan hệ Emla 5% - XTS08A</a></h3>
+                                                    <h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">Kem bôi kéo dài thời gian quan hệ Emla 5% - XTS08A</a></h3>
                                                 </div>
                                                 <div class="product-price">
                                                     <ins> {{number_format($prod->price, 0,",",".")}}₫ </ins>
 
                                                 </div>
                                                 <div class="product-cart">
-                                                    <a href="{{url('')}}/add-to-cart&id={{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
+                                                    <a href="{{url('')}}/add-to-cartid{{$prod->id}}&soluong=1" class="product_quick_addz" title='Mua ngay'> Mua ngay</a>
                                                 </div>
                                             </div>
                                         </div>

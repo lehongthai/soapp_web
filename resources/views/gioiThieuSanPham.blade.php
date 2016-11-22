@@ -92,7 +92,7 @@ Giới thiệu
             ?>
             <ul>
             @foreach($catePost as $ca)
-              <li><a href="{{url('')}}/post={{$ca->alias}}&id={{$ca->id}}">{{$ca->title}}</a></li>
+              <li><a href="{{url('')}}/bai-viet/{{$ca->alias}}id{{$ca->id}}">{{$ca->title}}</a></li>
             @endforeach
             </ul>
           </div>
@@ -112,14 +112,14 @@ Giới thiệu
             @foreach($newPosts as $new)
               <div class="spost clearfix">
                 <div class="entry-image">
-                  <a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}" class="nobg a-circle"><img class="img-circle-custom" src="{{$new->image_link}}" alt="{{$new->alt}}"></a>
+                  <a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}" class="nobg a-circle"><img class="img-circle-custom" src="{{$new->image_link}}" alt="{{$new->alt}}"></a>
                 </div>
                 <div class="entry-c">
                   <div class="entry-title">
-                    <h4><a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}">{{$new->title}}</a></h4>
+                    <h4><a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}">{{$new->title}}</a></h4>
                   </div>
                   <ul class="entry-meta">
-                    <li><a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}"><i class="icon-comments-alt"></i> bình luận</a></li>
+                    <li><a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}"><i class="icon-comments-alt"></i> bình luận</a></li>
                   </ul>
                 </div>
               </div>
@@ -141,7 +141,7 @@ Giới thiệu
               $shop = DB::table('shop')->first();
             ?>
 
-            <div class="fb-like-box small--hide fb_iframe_widget" data-href="{{$shop->facebook}}" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=263266547210244&amp;color_scheme=light&amp;container_width=240&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbaocaosu.sextoy&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"><span style="vertical-align: bottom; width: 300px; height: 214px;"><iframe name="f1e9f89028dc2b8" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="https://www.facebook.com/v2.0/plugins/like_box.php?app_id=263266547210244&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df61ccc03b8b404%26domain%3Dsextoygiagoc.com%26origin%3Dhttp%253A%252F%252Fsextoygiagoc.com%252Ff27c4a0746c194%26relation%3Dparent.parent&amp;color_scheme=light&amp;container_width=240&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbaocaosu.sextoy&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false" style="border: none; visibility: visible; width: 300px; height: 214px;" class=""></iframe></span></div> 
+            <div class="fb-like-box small--hide fb_iframe_widget" data-href="{{$shop->facebook}}" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=263266547210244&amp;color_scheme=light&amp;container_width=240&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbaocaosu.sextoy&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"><span style="vertical-align: bottom; width: 300px; height: 214px;"><iframe name="f1e9f89028dc2b8" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="https://www.facebook.com/v2.0/plugins/like_box.php?app_id=263266547210244&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df61ccc03b8b404%26domain%3D%26origin%3Dhttp%253A%252F%252Fsextoygiagoc.com%252Ff27c4a0746c194%26relation%3Dparent.parent&amp;color_scheme=light&amp;container_width=240&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbaocaosu.sextoy&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false" style="border: none; visibility: visible; width: 300px; height: 214px;" class=""></iframe></span></div> 
 
 
 

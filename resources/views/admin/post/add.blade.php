@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('body_right')
 
-    <div class="col-lg-7" style="padding-bottom:120px">
+    <div class="col-lg-11" style="padding-bottom:120px">
         <form action="{!! route('admin.post.getAdd') !!}" method="POST">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <div class="form-group">
