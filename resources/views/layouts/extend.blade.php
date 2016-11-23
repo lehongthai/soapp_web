@@ -148,6 +148,7 @@
     </head> 
 
     <body class="stretched no-transition">
+    <?php include_once("analyticstracking.php") ?>
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
         <script type="text/javascript" src="{{url('')}}/public/assets/addthis_widget.js#pubid=ra-56fb54ea6647f103"></script>
 

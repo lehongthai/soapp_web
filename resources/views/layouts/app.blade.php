@@ -26,6 +26,7 @@
     </style>
 </head>
 <body id="app-layout">
+<?php include_once("analyticstracking.php") ?>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">

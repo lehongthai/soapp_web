@@ -141,6 +141,7 @@
 </head>
 
 <body class="stretched no-transition" >
+<?php include_once("analyticstracking.php") ?>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
