@@ -66,18 +66,14 @@ Giới thiệu
               <!-- Post Single - Share
               ============================================= -->
               <div class="si-share noborder clearfix">
-                <div id='fb-root'/>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = &quot;//connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;appId=1674300986121027&amp;version=v2.3&quot;;
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, &#39;script&#39;, &#39;facebook-jssdk&#39;));</script>
-<b:if cond='data:blog.pageType == &quot;item&quot;'>
-<div class='fb-comments' data-num-posts='10' data-width='690px' expr:data-href='data:blog.canonicalUrl'/>
-</b:if>
-              </div><!-- Post Single - Share End -->
+              <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+<div class="fb-comments" data-href="http://dochoitinhducshop.com/" data-numposts="5"></div>
             </div><!-- .entry end -->
 
 
@@ -87,7 +83,6 @@ Giới thiệu
         </div>
 </div>
       </div><!-- .postcontent end -->
-</div>
       <!-- Sidebar
       ============================================= -->
       <div class="nobottommargin col_last clearfix col-md-3">
@@ -102,7 +97,7 @@ Giới thiệu
             ?>
             <ul>
             @foreach($catePost as $ca)
-              <li><a href="{{url('')}}/post={{$ca->alias}}&id={{$ca->id}}">{{$ca->title}}</a></li>
+              <li><a href="{{url('')}}/bai-viet/{{$ca->alias}}id{{$ca->id}}">{{$ca->title}}</a></li>
             @endforeach
             </ul>
           </div>
@@ -122,14 +117,14 @@ Giới thiệu
             @foreach($newPosts as $new)
               <div class="spost clearfix">
                 <div class="entry-image">
-                  <a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}" class="nobg a-circle"><img class="img-circle-custom" src="{{$new->image_link}}" alt="{{$new->alt}}"></a>
+                  <a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}" class="nobg a-circle"><img class="img-circle-custom" src="{{$new->image_link}}" alt="{{$new->alt}}"></a>
                 </div>
                 <div class="entry-c">
                   <div class="entry-title">
-                    <h4><a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}">{{$new->title}}</a></h4>
+                    <h4><a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}">{{$new->title}}</a></h4>
                   </div>
                   <ul class="entry-meta">
-                    <li><a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}"><i class="icon-comments-alt"></i> bình luận</a></li>
+                    <li><a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}"><i class="icon-comments-alt"></i> bình luận</a></li>
                   </ul>
                 </div>
               </div>
@@ -151,19 +146,11 @@ Giới thiệu
               $shop = DB::table('shop')->first();
             ?>
 
-            <div class="fb-like-box small--hide fb_iframe_widget" data-href="{{$shop->facebook}}" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=1674300986121027&amp;color_scheme=light&amp;container_width=240&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbaocaosu.sextoy&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"><span style="vertical-align: bottom; width: 300px; height: 214px;"><iframe name="f1e9f89028dc2b8" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="https://www.facebook.com/v2.0/plugins/like_box.php?app_id=1674300986121027&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df61ccc03b8b404%26domain%3Dsextoygiagoc.com%26origin%3Dhttp%253A%252F%252Fsextoygiagoc.com%252Ff27c4a0746c194%26relation%3Dparent.parent&amp;color_scheme=light&amp;container_width=240&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbaocaosu.sextoy&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false" style="border: none; visibility: visible; width: 300px; height: 214px;" class=""></iframe></span></div> 
+             <div class="fb-page" data-href="{{$shop->facebook}}" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ngocnguu205/" class="fb-xfbml-parse-ignore"><a href="{{$shop->facebook}}">Đồ chơi tình dục shop</a></blockquote></div>
 
 
 
-            <script>
-              (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=263266547210244&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));
-            </script>
+            
           </div>
 
           

@@ -26,7 +26,10 @@ class ProductRequest extends Request {
 			'txtName' => 'required|unique:products,name',
 			'txtPrice' => 'required|numeric|min:1',
 			'txtPriceOld' => 'numeric|min:1',
-			'fImages' => 'required'
+			'fImages' => 'required', 
+			'tags' => 'required',
+			'txtMake' => 'required',
+			'txtDescription' => 'required'
 		];
 	}
 
@@ -43,7 +46,9 @@ class ProductRequest extends Request {
 			'txtPriceOld.numeric' => 'Giá tiền không hợp lệ',
 			'txtPriceOld.min' => 'Giá tối thiểu là 0 đồng',
 			'fImages.required' => 'Vui lòng nhập ảnh hiển thị',
-			//'fImages.image' => 'Vui lòng chọn đúng định dạng ảnh',	
+			'tags.required' => 'Vui lòng nhập keywords',	
+			'txtMake.required' => 'Vui lòng nhập keywords',	
+			'txtDescription.required' => 'Vui lòng nhập mô tả',	
 		];
 	}
 

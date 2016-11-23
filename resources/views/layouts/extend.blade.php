@@ -30,18 +30,17 @@
 
     <!-- Product meta ================================================== -->
     
-
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{$seo->title}}" />
-  
-    <meta property="og:image" content="{{$banner[2]->image_link}}" />
-
-
 <meta name="keywords" content="{{$seo->meta_key}}">
 
 <meta property="og:url" content="{{url('')}}" />
 <meta property="og:site_name" content="{{url('')}}" />
+<meta property="fb:app_id" content="1820603798154432"/>
+<meta property="fb:admins" content="100002730776444">
+<meta property="og:url" content="{{url('')}}" />
+<meta property="og:title" content="{{$seo->title}}" />
+<meta property="og:type" content="Website" />
+<meta property="og:description" content="{{$seo->meta_desc}}" />
+<meta property="og:image" content="{{$banner[2]->image_link}}" />
         <link rel="canonical" href="{{url('')}}" />
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=0' name='viewport' />
         <style>
@@ -71,25 +70,6 @@
             }
 
         </style>
-        <noscript><iframe height='0' width='0' style='display:none;visibility:hidden' src='visit/record9155.html?p=%2f&amp;r=&amp;s=fm3h2n5qifbkc0jzbfwisw1l'></iframe></noscript>
-        <script type='text/javascript'>
-            (function () {
-                var log = document.createElement('script');
-                log.type = 'text/javascript';
-                log.async = true;
-                log.src = '{{url('')}}/public/assets/86968e034.js?lang=vi';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(log, s);
-            })();
-
-        </script>
-        <!-- Google Tag Manager -->
-        <noscript>
-            	<iframe src='http://www.googletagmanager.com/ns.html?id=GTM-MS77Z9' height='0' width='0' style='display:none;visibility:hidden'></iframe>
-            </noscript>
-        <!-- End Google Tag Manager -->
-
-        
 
         <!-- END Fonts -->
         <link href='{{url('')}}/public/assets/bootstrap4565.css?1476608156115' rel='stylesheet' type='text/css' />
@@ -152,6 +132,7 @@
         <link href='{{url('')}}/public/assets/bw-statistics-style4565.css?1476608156115' rel='stylesheet' type='text/css' />
         <link href='{{url('')}}/public/assets/tkn-style4565.css?1476608156115' rel='stylesheet' type='text/css' />
         <link href='{{url('')}}/public/assets/font-awesome.min.css' rel='stylesheet'>
+        
         <script src='{{url('')}}/public/assets/tkn-util4565.js?1476608156115' type='text/javascript'></script>
         <style type="text/css">
             .container{
@@ -187,11 +168,11 @@
                 <?php 
                      foreach ($catalog as $ca) {
                         if($ca->parent_id == 0){
-                            echo "<li class=''><a class='menu' href='".$domain."catalog&slug={$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
+                            echo "<li class=''><a class='menu' href='".$domain."phan-loai/{$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
                             foreach ($catalog as $sub_ca) {
                                 if($sub_ca->parent_id == $ca->id)
                                 {
-                                    echo "<li class=''><a class='sub-menu' href='".$domain."navigation&slug={$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>";
+                                    echo "<li class=''><a class='sub-menu' href='".$domain."loai/{$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>";
                                 }
                             }
                         }
@@ -319,8 +300,8 @@
 
                         <div id="logo" class='col-md-3'>
 
-                            <a href="{{url('')}}" class="standard-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="TRUNG TÂM BÁN BUÔN BÁN LẺ ĐỒ CHƠI TÌNH DỤC - SEXTOY"></a>
-                            <a href="{{url('')}}" class="retina-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="TRUNG TÂM BÁN BUÔN BÁN LẺ ĐỒ CHƠI TÌNH DỤC - SEXTOY"></a>
+                            <a href="{{url('')}}" class="standard-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="{{$banner[2]->alt}}"></a>
+                            <a href="{{url('')}}" class="retina-logo" data-dark-logo="{{$banner[2]->image_link}}"><img src="{{$banner[2]->image_link}}" alt="{{$banner[2]->alt}}"></a>
                         </div>
                         <!-- #logo end -->
 
@@ -355,12 +336,12 @@
                                      foreach ($catalog as $ca) {
                                         if($ca->parent_id == 0)
                                         {
-                                            echo "<li class=''><a class='menu' href='".$domain."catalog&slug={$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
+                                            echo "<li class=''><a class='menu' href='".$domain."phan-loai/{$ca->alias}'>{$ca->name}<span>+</span></a><ul>";
                                             foreach($catalog as $sub_ca)
                                             {
                                                 if($sub_ca->parent_id == $ca->id)
                                                 {
-                                                    echo "<li class=''><a class='sub-menu' href='".$domain."navigation&slug={$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
+                                                    echo "<li class=''><a class='sub-menu' href='".$domain."loai/{$sub_ca->alias}'><div>{$sub_ca->name}</div></a></li>"; 
                                                 }
                                                 
                                             }
@@ -413,10 +394,10 @@
                                 <button type="submit" class='button'>Tìm kiếm</button>
                                 <ul class="header-tag clearfix hidden-sm hidden-xs">
                                     <li class="border-none"><strong>Xu hướng tìm kiếm:</strong></li>
-                                    <li><a href="{{url('')}}/navigation&slug=gel-titan-developpe-sex">Gel titan </a></li>
-                                    <li><a href="{{url('')}}/catalog=bao-cao-su">Bao cao su</a></li>
-                                    <li><a href="{{url('')}}/navigation&slug=am-dao-gia-den-pin">âm đạo giả đèn pin</a></li>
-                                    <li class="border-none"><a href="{{url('')}}/navigation&slug=duong-vat-gia-cam-tay">dương vật giả cầm tay</a></li>
+                                    <li><a href="{{url('')}}/loai/gel-titan-developpe-sex">Gel titan </a></li>
+                                    <li><a href="{{url('')}}/loai/bao-cao-su">Bao cao su</a></li>
+                                    <li><a href="{{url('')}}/loai/am-dao-gia-den-pin">âm đạo giả đèn pin</a></li>
+                                    <li class="border-none"><a href="{{url('')}}/loai/duong-vat-gia-cam-tay">dương vật giả cầm tay</a></li>
                                 </ul>
                             </form>
                             <div class="kmhot hidden-xs hidden-sm">
@@ -492,7 +473,7 @@
                                             $thongTin = DB::table('posts')->where('cate_id', 2)->inRandomOrder()->take(6)->get();
                                         ?>
                                         @foreach($thongTin as $tin)
-                                        <li><a href="{{url('')}}/post={{$tin->title}}&id={{$tin->id}}">{{$tin->title}}</a></li>
+                                        <li><a href="{{url('')}}/post={{$tin->title}}id{{$tin->id}}">{{$tin->title}}</a></li>
                                         @endforeach
 
 
@@ -517,7 +498,7 @@
                                         <div class="spost clearfix">
                                             <div class="entry-c">
                                                 <div class="entry-title">
-                                                    <h4><a href="{{url('')}}/post={{$tin->title}}&id={{$tin->id}}">{{$tin->title}}</a></h4>
+                                                    <h4><a href="{{url('')}}/post={{$tin->title}}id{{$tin->id}}">{{$tin->title}}</a></h4>
                                                 </div>
                                                 <ul class="entry-meta">
                                                     <li>{{$tin->created_at}}</li>
@@ -1188,8 +1169,18 @@ if(isAdd==0)
           });
     });
 </script>
-    </body>
+<style type="text/css">
+    #callPhone{
+        position: fixed;
+        bottom: 0px;
+        left: 3px;
+        z-index: 110000;
+    }
+</style>
+<div id="callPhone" class="hidden-lg hidden-md">
+    <a href="tel:{{$shop->tel}}"><img src="https://cdn2.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_Phone.png" style="width: 60px"></a>
+</div>
 
-    <!-- Mirrored from sextoygiagoc.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 31 Oct 2016 13:38:29 GMT -->
+    </body>
 
 </html>

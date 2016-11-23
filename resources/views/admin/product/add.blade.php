@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('body_right')
 <form action="{{url('')}}/admin/product/add" method="POST" enctype="multipart/form-data">
-    <div class="col-lg-7" style="padding-bottom:120px">
+    <div class="col-lg-9" style="padding-bottom:120px">
         <input type="hidden" name="_token" id="input" class="form-control" value="{!! csrf_token() !!}">
         <div class="form-group">
             <label>Danh Mục Sản Phẩm</label>
@@ -71,10 +71,12 @@
                 <option value="{!! $key !!}" @if(old('tags') == $key) selected='selected'   @endif >{!! $tag !!}</option>
                 @endforeach
             </select>
+            <div style="color:red">{!! $errors->first('tags') !!}</div>
         </div>
         <div class="form-group">
             <label>Description</label>
                 <textarea class="form-control" rows="3" name="txtDescription">{!! old('txtDescription') !!}</textarea>
+                <div style="color:red">{!! $errors->first('txtDescription') !!}</div>
         </div>
                             
         <button type="submit" class="btn btn-default">Product Add</button>
@@ -82,7 +84,7 @@
                         
 </div>
     <div class="col-lg-1"></div>
-    <div class="col-lg-4" style="padding-top:22px" id="addImage">
+    <div class="col-lg-2" style="padding-top:22px" id="addImage">
         <button style="margin-bottom:10px" type="button" class="btn btn-success">Thêm ảnh chi tiết</button>
         <div class="col-xs-12 thumbnail">
             <img src="{!! old('detailImg[]') !!}" id="imgDetail1" style="width:50%;height:50%">

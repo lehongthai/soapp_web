@@ -112,7 +112,7 @@ Giới thiệu
 
 <p>Cách làm đúng: Nơi trữ bao cao su cần tránh trực tiếp dưới nắng quá lâu, tránh nơi có nhiệt độ cao (cốp xe chẳng hạn), nơi có ma sát nhiều (trong ví tiền). Theo khuyến cáo, tình trạng tiếp xúc với nắng, nhiệt, ma sát sẽ làm giảm chất lượng bao.</p>
 
-<p><a href="index.html">Sextoygiagoc.com</a></p>
+<p><a href="index.html">{{url('')}}</a></p>
 
 <p><em>Cơ sở 1: ngõ 80-Trần Duy Hưng,Q. Cầu Giấy,&nbsp;Hà Nội</em><em>*&nbsp;⇒&nbsp;Cơ sở 2:&nbsp;số 23 Hàng Đào,&nbsp;Q&nbsp;Hoàn Kiếm,&nbsp;Hà Nội</em></p>
 

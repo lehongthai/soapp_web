@@ -18,11 +18,11 @@ Giới thiệu
 					@foreach($posts as $post)
 					<div class="entry clearfix">
 						<div class="entry-image">
-							<a href="{{url('')}}/post={{$post->alias}}&id={{$post->id}}" data-lightbox="image"><img class="image_fade" src="{{$post->image_link}}" alt="{{$post->alt}}"></a>
+							<a href="{{url('')}}/bai-viet/{{$post->alias}}id{{$post->id}}" data-lightbox="image"><img class="image_fade" src="{{$post->image_link}}" alt="{{$post->alt}}"></a>
 						</div>
 						<div class="entry-c">
 							<div class="entry-title">
-								<h2><a href="{{url('')}}/post={{$post->alias}}&id={{$post->id}}">{{$post->title}}</a></h2>
+								<h2><a href="{{url('')}}/bai-viet/{{$post->alias}}id{{$post->id}}">{{$post->title}}</a></h2>
 							</div>
 							<ul class="entry-meta clearfix">
 								<li><i class="icon-calendar3">{{$post->created_at}}</i></li>
@@ -40,7 +40,7 @@ Giới thiệu
 							</ul>
 							<div class="entry-content">
 								<!-- a -->
-								   {{$post->intro}}<a href="{{url('')}}/post={{$post->alias}}&id={{$post->id}}" class="more-link">Xem tiếp</a>
+								   {{$post->intro}}<a href="{{url('')}}/bai-viet/{{$post->alias}}id{{$post->id}}" class="more-link">Xem tiếp</a>
 							</div>
 						</div>
 					</div>
@@ -65,7 +65,7 @@ Giới thiệu
 						?>
 						<ul>
 						@foreach($catePost as $ca)
-							<li><a href="{{url('')}}/post={{$ca->alias}}&id={{$ca->id}}">{{$ca->title}}</a></li>
+							<li><a href="{{url('')}}/bai-viet/{{$ca->alias}}id{{$ca->id}}">{{$ca->title}}</a></li>
 						@endforeach
 						</ul>
 					</div>
@@ -85,14 +85,14 @@ Giới thiệu
 						@foreach($newPosts as $new)
 							<div class="spost clearfix">
 								<div class="entry-image">
-									<a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}" class="nobg a-circle"><img class="img-circle-custom" src="{{$new->image_link}}" alt="{{$new->alt}}"></a>
+									<a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}" class="nobg a-circle"><img class="img-circle-custom" src="{{$new->image_link}}" alt="{{$new->alt}}"></a>
 								</div>
 								<div class="entry-c">
 									<div class="entry-title">
-										<h4><a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}">{{$new->title}}</a></h4>
+										<h4><a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}">{{$new->title}}</a></h4>
 									</div>
 									<ul class="entry-meta">
-										<li><a href="{{url('')}}/post={{$new->alias}}&id={{$new->id}}"><i class="icon-comments-alt"></i> bình luận</a></li>
+										<li><a href="{{url('')}}/bai-viet/{{$new->alias}}id{{$new->id}}"><i class="icon-comments-alt"></i> bình luận</a></li>
 									</ul>
 								</div>
 							</div>

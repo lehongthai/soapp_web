@@ -5,10 +5,17 @@ Danh mục
 @stop
 
 @section('content')
-
+<style type="text/css">
+	
+@media screen and (min-width: 940px) {
+    .postcontent {
+    width: 800px;
+	}
+}
+</style>
 			<!-- Post Content
 			============================================= -->
-			<div class="postcontent nobottommargin col_last" style="width: 810px">
+			<div class="postcontent nobottommargin col_last" >
 				<div class="collection-name">
 					Tăng cường sinh lý
 				</div>
@@ -19,46 +26,28 @@ Danh mục
 </div>
 <div id="grid_pagination">
 @foreach($product as $prod)
-	<div class="col-md-3 col-sm-4 col-xs-6">
+	<div class="col-md-3 col-sm-6 col-xs-6">
 		<div class="product-item ">
 			<div class="product-image">
-				<a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">
+				<a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">
 
-					<img alt="{{$prod->alt}}" data-srcset="{{$prod->image_link}}, {{$prod->alt}}" src="{{$prod->image_link}}" class="">
+					<img alt="{{$prod->alt}}" data-srcset="{{$prod->image_link}}, {{$prod->alt}}" src="{{$prod->image_link}}" >
 				</a>
 			</div>
 			<div class="product-desc center">
-				<div class="product-title"><h3><a href="{{url('')}}/product={{$prod->alias}}&id={{$prod->id}}">{{$prod->name}}</a></h3></div>
+				<div class="product-title"><h3><a href="{{url('')}}/san-pham/{{$prod->alias}}id{{$prod->id}}">{{$prod->name}}</a></h3></div>
 				<div class="product-price">
 					<ins> {{number_format($prod->price, 0,",",".")}}đ </ins>
 				</div>
 				<div class="product-cart">
-					<a href="{{url('')}}/addCart&id={{$prod->id}}" class="product_quick_add" title="Mua ngay"> Mua ngay</a>
+					<a href="{{url('')}}/addCartid{{$prod->id}}" class="product_quick_add" title="Mua ngay"> Mua ngay</a>
 				</div>
 			</div>
 		</div>
 	</div>
 @endforeach
 
-	<script>
-		jQuery(document).ready(function(){ 
-			Layout.init(); 
-		}); 
-	</script>
 
-	<!-- <div class="pagination_wrapper">
-		<ul class="pagination">
-
-
-
-
-			<li class="active"><a href="#" style="pointer-events:none">1</a></li>
-
-
-
-
-		</ul>	
-	</div> -->
 
 </div>
 </div><!-- #shop end -->
@@ -66,7 +55,7 @@ Danh mục
 </div><!-- .postcontent end -->
 			<!-- Sidebar
 			============================================= -->
-			<div class="sidebar nobottommargin  left-sidebar hidden-sm hidden-xs" style="width: 210px">
+			<div class="sidebar nobottommargin  left-sidebar hidden-sm hidden-xs">
 				<div class="sidebar-widgets-wrap">
 					<!-- begin: filters -->
 					<!-- end: filters -->
@@ -110,11 +99,11 @@ Danh mục
 						
 							<div class="spost clearfix">
 								<div class="entry-image">
-									<a href="{{url('')}}/product={{$best->alias}}&id={{$best->id}}"><img src="{{$best->image_link}}" alt="{{$best->name}}"></a>
+									<a href="{{url('')}}/san-pham/{{$best->alias}}id{{$best->id}}"><img src="{{$best->image_link}}" alt="{{$best->name}}"></a>
 								</div>
 								<div class="entry-c">
 									<div class="entry-title">
-										<h4><a href="{{url('')}}/product={{$best->alias}}&id={{$best->id}}">{{$best->name}}</a></h4>
+										<h4><a href="{{url('')}}/san-pham/{{$best->alias}}id{{$best->id}}">{{$best->name}}</a></h4>
 									</div>
 									<ul class="entry-meta">
 										<li class="color">
@@ -144,11 +133,11 @@ Danh mục
 						
 							<div class="spost clearfix">
 								<div class="entry-image">
-									<a href="{{url('')}}/product={{$best->alias}}&id={{$best->id}}"><img src="{{$best->image_link}}" alt="{{$best->name}}"></a>
+									<a href="{{url('')}}/san-pham/{{$best->alias}}id{{$best->id}}"><img src="{{$best->image_link}}" alt="{{$best->name}}"></a>
 								</div>
 								<div class="entry-c">
 									<div class="entry-title">
-										<h4><a href="{{url('')}}/product={{$best->alias}}&id={{$best->id}}">{{$best->name}}</a></h4>
+										<h4><a href="{{url('')}}/san-pham/{{$best->alias}}id{{$best->id}}">{{$best->name}}</a></h4>
 									</div>
 									<ul class="entry-meta">
 										<li class="color">

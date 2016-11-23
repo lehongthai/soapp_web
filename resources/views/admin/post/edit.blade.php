@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('body_right')
-    <div class="col-lg-9" style="padding-bottom:120px">
+    <div class="col-lg-11" style="padding-bottom:120px">
         <form action="{!! route('admin.post.getEdit') !!}" method="POST">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <input type="hidden" name="id" value="{!! $data['id'] !!}">
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="product_select">Chọn thẻ</label><br>
-                <?php $tags = explode(',', $data['tags']) ?>
+                <?php $tags = explode(',', $data['tags']); ?>
                     <select multiple id="product_select" style="width:100%" name="tags[]">
                     @foreach($listTags as $key => $tag)
                     @foreach($tags as $val)
