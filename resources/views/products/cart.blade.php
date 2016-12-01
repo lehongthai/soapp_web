@@ -151,7 +151,9 @@ Giỏ hàng
         var myArray = [];
         var total = 0; 
         $.each(mydata, function(index, data) {
-          myArray.push([ dem, '<div style="width:150px" ><img src="'+data.options.img+'" /></div>', data.name, formatPrice(data.price) + ' vnđ', '<input type="text" onchange="updateCart(this.value,\''+data.rowId+'\')" value="'+data.qty+'" style="width:35%;text-align: center !important;">', formatPrice(data.price*data.qty) + ' vnđ', '<button onclick="xoa(\''+data.rowId+'\')" class="btn btn-danger" style="color:#FFF;" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-trash"></span></button>']);
+          var thumz = data.options.img;
+          thumz = thumz.replace('Files', 'Images');
+          myArray.push([ dem, '<div style="width:150px" ><img src="'+thumz+'" /></div>', data.name, formatPrice(data.price) + ' vnđ', '<input type="text" onchange="updateCart(this.value,\''+data.rowId+'\')" value="'+data.qty+'" style="width:35%;text-align: center !important;">', formatPrice(data.price*data.qty) + ' vnđ', '<button onclick="xoa(\''+data.rowId+'\')" class="btn btn-danger" style="color:#FFF;" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-trash"></span></button>']);
           dem++;
           total = total + data.price*data.qty;
         });
@@ -240,7 +242,7 @@ function updateCart(value, rowid) {
  }
 
  function xoa(id){
-  $.get('removeCart&id='+id, function(data){
+  $.get('removeCartid'+id, function(data){
     if(data=='1')
     {
       load();

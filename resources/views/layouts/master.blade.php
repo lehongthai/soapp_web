@@ -30,8 +30,8 @@
 
   <meta property="og:url" content="{{url('')}}" />
 <meta property="og:site_name" content="{{url('')}}" />
-<meta property="fb:app_id" content="1820603798154432"/>
-<meta property="fb:admins" content="100002730776444">
+<meta property="fb:app_id" content="1592138087761710"/>
+<meta property="fb:admins" content="100009313360902">
 <meta property="og:url" content="{{url('')}}" />
 <meta property="og:title" content="{{$seo->title}}" />
 <meta property="og:type" content="Website" />
@@ -144,7 +144,7 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1820603798154432',
+      appId      : '1592138087761710',
       xfbml      : true,
       version    : 'v2.8'
     });

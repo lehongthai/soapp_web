@@ -53,17 +53,7 @@
             <textarea class="form-control" rows="5" name="txtContent">{!! old('txtContent') !!}</textarea>
             <script type="text/javascript">ckeditor('txtContent')</script>
         </div>
-        <div class="form-group">
-            <label>Ảnh Chính</label>
-            <div class="col-xs-12 thumbnail">
-                <img src="{!! old('fImages') !!}" id="avatar">
-                <hr>
-                <input class="form-control" name="txtAltImage" placeholder="Chú thích ảnh" value="{!! old('txtAltImage') !!}"  />
-            </div>
-            <input type="hidden" name="fImages" id="link_avatar" value="{!! old('fImages') !!}" >
-            <button type="button" class="btn btn-large btn-block btn-default" onclick="BrowseServer();">Chọn Ảnh</button>
-            <div style="color:red">{!! $errors->first('fImages') !!}</div>
-        </div>
+        
         <div class="form-group">
             <label for="product_select">Chọn thẻ (keyword)</label><br>
             <select multiple id="product_select" style="width:100%" name="tags[]">
@@ -85,6 +75,19 @@
 </div>
     <div class="col-lg-1"></div>
     <div class="col-lg-2" style="padding-top:22px" id="addImage">
+        <div class="form-group">
+            <label>Ảnh Chính</label>
+            <div class="col-xs-12 thumbnail">
+                <img src="{!! old('fImages') !!}" id="avatar">
+                <hr>
+                <input class="form-control" name="txtAltImage" placeholder="Chú thích ảnh" value="{!! old('txtAltImage') !!}"  />
+                <input type="hidden" name="fImages" id="link_avatar" value="{!! old('fImages') !!}" >
+
+            <button type="button" class="btn btn-large btn-block btn-default" onclick="BrowseServer();" style="margin-top:5px" >Chọn Ảnh</button>
+            </div>
+            
+            <div style="color:red">{!! $errors->first('fImages') !!}</div>
+        </div>
         <button style="margin-bottom:10px" type="button" class="btn btn-success">Thêm ảnh chi tiết</button>
         <div class="col-xs-12 thumbnail">
             <img src="{!! old('detailImg[]') !!}" id="imgDetail1" style="width:50%;height:50%">
