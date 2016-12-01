@@ -75,5 +75,7 @@
       document.getElementById( 'link_avatar' ).value = fileUrl;
       document.getElementById( 'image_link' ).src = document.getElementById( 'link_avatar' ).value;
     }
+
+    
 </script>
 @endsection()

@@ -70,7 +70,7 @@ class ProductController extends Controller {
 		$product->cate_id = $request->cate_id;
 		$product->intro = $request->txtIntro;
 		$product->content = $request->txtContent;
-		$product->user_id = /*Auth::user()->id*/ 1;
+		$product->user_id = Auth::user()->id;
 		$product->image_link = $request->fImages;
 		$product->alt = $request->txtAltImage;
 		$product->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
@@ -181,7 +181,7 @@ class ProductController extends Controller {
 			$product->cate_id = Request::input('cate_id');
 			$product->intro = Request::input('txtIntro');
 			$product->content = Request::input('txtContent');
-			$product->user_id = /*Auth::user()->id*/1;
+			$product->user_id = Auth::user()->id;
 			$product->image_link = Request::input('fImages');
 			$product->alt = Request::input('txtAltImage');
 			$product->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];

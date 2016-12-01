@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -68,5 +70,20 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function postLogin(LoginRequest $loginRequest)
+    {
+        $dataLogin = [
+            'email' => $loginRequest->email,
+            'password' => $loginRequest->password,
+            'level' => 2,
+            'active' => 1
+        ];
+        if (Auth::attempt($dataLogin)) {
+            return redirect()->route('admin.post.list');
+        }else{
+            return redirect()->back();
+        }
     }
 }

@@ -163,7 +163,11 @@
 			Route::get('getEmail', ['as' => 'admin.customer.getEmail', 'uses' => 'customerController@getListEmail']);
 			Route::get('deleteEmail/{id?}', ['as' => 'admin.customer.getDeleteEmail', 'uses' => 'customerController@getDeleteEmail']);
 		});
-	});
-	Route::auth();
+});
+Route::post('auth/login', ['as' => 'admin.postLogin', 'uses' => 'Auth\AuthController@postLogin']);
+Route::post('users/register', ['as' => 'admin.register', 'uses' => 'UserController@postAdd']);
+Route::get('active-user/{id?}',['as' => 'getConfirmUser', 'uses' => 'UserController@getConfirmUser']);
 
-	Route::get('/home', 'HomeController@index');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
