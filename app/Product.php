@@ -49,4 +49,34 @@ class Product extends Model {
 		}
 		return $listManufacturer;
 	}
+
+	public static function getListProduct()
+	{
+		$result = DB::table('products')->select('id', 'name', 'cate_id')->get();
+		$listProduct = array();
+		foreach ($result as $val) {
+			$listProduct[$val->id] =  $val->name;
+		}
+		return $listProduct;
+	}
+
+	public static function getListProductByCate()
+	{
+		$listProduct = DB::table('products')->select('id', 'name', 'cate_id')->get();
+		$listCate = DB::table('cates')->select('id', 'name')->get();
+		$html = '';
+		foreach ($listCate as $cate) 
+		{
+			foreach($listProduct as $product)
+			{
+				if ($cate->id == $product->cate_id) 
+				{ 
+					$html .= '<optgroup label="' . $cate->name . '"></optgroup>';
+					$html .= '<option value="' . $product->id . '">' . $product->name . '</option>';
+				}
+			}
+		}
+		return $html;
+	}
+
 }

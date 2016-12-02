@@ -24,6 +24,7 @@
     <script src="{{url('')}}/public/admin/js/jquery.min.js"></script>
 
     <link href="{!! url('public/admin') !!}/dist/css/select2.min.css" rel="stylesheet">
+    <link href="{!! url('public/admin') !!}/bootstrap-multiselect.css" rel="stylesheet">
 
     <!-- DataTables CSS -->
     <link href="{!! url('public/admin') !!}/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
@@ -33,8 +34,10 @@
 
     {{-- embed Ckeditor And Ckfinder --}}
     <script src="{!! url('public/admin') !!}/js/ckeditor/ckeditor.js"></script>
+
     <script src="{!! url('public/admin') !!}/js/ckfinder/ckfinder.js"></script>
     <script src="{!! url('public/admin') !!}/js/func_ckfinder.js"></script>
+    <script src="{!! url('public/admin') !!}/js/jquery.tabledit.js"></script>
     <script type="text/javascript">
         var baseURL = "{!! url('/') !!}";
     </script>
@@ -346,6 +349,11 @@
         tags:true
     });
 
+</script>
+<script type="text/javascript">
+$("#js-example-basic-multiple").select2({
+    maximumSelectionLength: 4
+});
 </script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>

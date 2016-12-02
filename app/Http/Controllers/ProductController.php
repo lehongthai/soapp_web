@@ -17,7 +17,7 @@ class ProductController extends Controller {
 	public function getList()
 	{
 		$data = Product::leftjoin('cates', 'products.cate_id', '=' , 'cates.id')
-						->select('products.id', 'products.image_thumb', 'products.name as pName', 'products.created_at', 'products.price', 'cates.name as cName')
+						->select('products.id', 'products.image_thumb', 'products.name as pName', 'products.created_at', 'products.price', 'products.orders', 'cates.name as cName')
 						->get()->toArray();
 		return view('admin.product.list', compact('data'));
 	}
@@ -26,8 +26,10 @@ class ProductController extends Controller {
 	{
 		$listTags = Product::getListTags();
 		$listManufacturer = Product::getListManufacturer();
+		$listProduct = Product::getListProduct();
+
 		$parent = Cate::select('id', 'name', 'parent_id')->get()->toArray();
-		return view('admin.product.add', compact('parent', 'listTags', 'listManufacturer'));
+		return view('admin.product.add', compact('parent', 'listTags', 'listManufacturer', 'listProduct'));
 	}
 
 	public function postAdd(ProductRequest $request)
@@ -63,9 +65,23 @@ class ProductController extends Controller {
 		$product->tags = implode(',', $listTagsOld);
 		$product->make = implode(',', $listManufacturerOld);
 		$product->name = $request->txtName;
-		$product->alias = convert_vi_to_en($request->txtName);
+		if (isset($request->txtUrl) && $request->txtUrl != NULL) {
+			$product->alias = $request->txtUrl;
+		}else{
+			$product->alias = convert_vi_to_en($request->txtName);
+		}
+		
 		$product->price = $request->txtPrice;
 		$product->price_old = $request->txtPriceOld;
+		$product->orders = $request->txtOrder;
+		if (isset($request->properties) && $request->properties != NULL) {
+			$product->properties = implode(',', $request->properties);
+		}
+		
+		if (isset($request->related_product) && $request->related_product != NULL) {
+			$product->related = implode(',', $request->related_product);
+		}
+		
 		$product->quantity = 0;
 		$product->cate_id = $request->cate_id;
 		$product->intro = $request->txtIntro;
@@ -74,7 +90,7 @@ class ProductController extends Controller {
 		$product->image_link = $request->fImages;
 		$product->alt = $request->txtAltImage;
 		$product->image_thumb = url('/').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
-		//$request->file('fImages')->move('/public/uploads/', $product->image);
+
 		$product->keywords = $request->txtKeywords;
 		$product->description = $request->txtDescription;
 		if($product->save()){
@@ -114,7 +130,8 @@ class ProductController extends Controller {
 			$listManufacturer = Product::getListManufacturer();
 			$parent = Cate::select('id', 'name', 'parent_id')->get()->toArray();
 			$listTags = Product::getListTags();
-			return view('admin.product.edit', compact('data', 'parent', 'imgDetail', 'listTags', 'listManufacturer'));
+			$listProduct = Product::getListProduct();
+			return view('admin.product.edit', compact('data', 'parent', 'imgDetail', 'listTags', 'listManufacturer', 'listProduct'));
 		}else{
 			$message = ['level' => 'danger', 'flash_message' => 'Không có thông tin'];
 			return redirect()->route('admin.product.list')->with($message);
@@ -174,7 +191,21 @@ class ProductController extends Controller {
 			$product->name = Request::input('txtName');
 			$product->tags = implode(',', $listTagsOld);
 			$product->make = implode(',', $listManufacturerOld);
-			$product->alias = convert_vi_to_en(Request::input('txtName'));
+			$product->orders = Request::input('txtOrder');
+			if (Request::input('properties') != NULL) {
+				$product->properties = implode(',', Request::input('properties'));
+			}
+			
+			if (Request::input('related_product') != NULL) {
+				$product->related = implode(',', Request::input('related_product'));
+			}
+			
+			if (Request::input('txtUrl') && Request::input('txtUrl') != NULL) {
+				$product->alias = Request::input('txtUrl');
+			}else{
+				$product->alias = convert_vi_to_en(Request::input('txtName'));
+			}
+			
 			$product->price = Request::input('txtPrice');
 			$product->price_old = Request::input('txtPriceOld');
 			$product->quantity = Request::input('txtQuantity');
@@ -239,6 +270,28 @@ class ProductController extends Controller {
 			$message = ['level' => 'danger', 'flash_message' => 'Không có thông tin'];
 		}
 		return redirect()->route('admin.product.list')->with($message);
+	}
+
+	/*Edit Nhanh*/
+	public function postAction(Request $request)
+	{
+		if (Request::input('action') == 'edit') 
+		{
+			$product = Product::find(Request::input('id'));
+			if ($product) {
+				$product->orders = Request::input('txtOrder');
+				if($product->save()){
+					$response = array(
+					  'code' => 'success'
+					);
+				}else{
+					$response = array(
+					  'code' => 'fail'
+					);
+				}
+			}
+		}
+		echo json_encode($response);
 	}
 
 }

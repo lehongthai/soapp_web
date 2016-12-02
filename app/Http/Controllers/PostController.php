@@ -14,7 +14,7 @@ class PostController extends Controller {
 	public function getList()
 	{
 		$data = Post::leftjoin('category_post', 'posts.cate_id', '=' , 'category_post.id')
-						->select('posts.id', 'posts.image_thumbnail', 'posts.title as title', 'posts.views', 'posts.created_at', 'category_post.name as cName')
+						->select('posts.id','posts.orders', 'posts.image_thumbnail', 'posts.title as title', 'posts.views', 'posts.created_at', 'category_post.name as cName')
 						->get()->toArray();
 		return view('admin.post.list', compact('data'));
 	}
@@ -50,8 +50,19 @@ class PostController extends Controller {
 
 		$post = new Post;
 		$post->title = $PostRequest->txtTitle;
-		$post->alias = convert_vi_to_en($PostRequest->txtTitle);
+
+		if (isset($PostRequest->txtUrl) && $PostRequest->txtUrl != NULL) {
+			$post->alias = $PostRequest->txtUrl;
+		}else{
+			$post->alias = convert_vi_to_en($PostRequest->txtTitle);
+		}
+
+		if (isset($PostRequest->properties) && $PostRequest->properties != NULL) {
+			$post->properties = implode(',', $PostRequest->properties);
+		}
+
 		$post->intro = $PostRequest->txtIntro;
+		$post->orders = $PostRequest->txtOrder;
 		$post->content = $PostRequest->txtContent;
 		$post->keywords = $PostRequest->txtKeyword;
 		$post->description = $PostRequest->txtDescription;
@@ -61,7 +72,7 @@ class PostController extends Controller {
 		$post->image_thumbnail = URL('').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 		$post->views = 0;
 		$post->cate_id = $PostRequest->cate_id;
-		$post->user_id = /*Auth::user()->id;*/ 1;
+		$post->user_id = Auth::user()->id;
 
 		if($post->save()){
 			$message = ['level' => 'success', 'flash_message' => 'Tạo thành công postgory '.$PostRequest->txtTitle];
@@ -123,8 +134,18 @@ class PostController extends Controller {
 			$image_arr = explode('/', $request->image_link);
 			$count = count($image_arr);	
 			$post->title = $request->txtTitle;
-			$post->alias = convert_vi_to_en($request->txtTitle);
+
+			if (isset($request->txtUrl) && $request->txtUrl != NULL) {
+				$post->alias = $request->txtUrl;
+			}else{
+				$post->alias = convert_vi_to_en($request->txtTitle);
+			}
+
+			if (isset($request->properties) && $request->properties != NULL) {
+				$post->properties = implode(',', $request->properties);
+			}
 			$post->intro = $request->txtIntro;
+			$post->orders = $request->txtOrder;
 			$post->content = $request->txtContent;
 			$post->keywords = $request->txtKeyword;
 			$post->description = $request->txtDescription;
@@ -134,7 +155,7 @@ class PostController extends Controller {
 			$post->image_thumbnail = URL('').'/public/upload/_thumbs/Files/'.$image_arr[$count-1];
 			$post->views = 0;
 			$post->cate_id = $request->cate_id;
-			$post->user_id = /*Auth::user()->id;*/ 1;
+			$post->user_id = Auth::user()->id;;
 			if($post->save()){
 				$message = ['level' => 'success', 'flash_message' => 'Cập nhật thành công  '.$request->txtTitle];
 			}else{
@@ -162,6 +183,26 @@ class PostController extends Controller {
 		return redirect()->route('admin.post.list')->with($message);
 	}
 
-
+	/*Edit Nhanh*/
+	public function postAction(Request $request)
+	{
+		if ($request->action == 'edit') 
+		{
+			$product = Post::find($request->id);
+			if ($product) {
+				$product->orders = $request->txtOrder;
+				if($product->save()){
+					$response = array(
+					  'code' => 'success'
+					);
+				}else{
+					$response = array(
+					  'code' => 'fail'
+					);
+				}
+			}
+		}
+		echo json_encode($response);
+	}
 
 }

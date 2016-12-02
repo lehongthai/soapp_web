@@ -27,7 +27,6 @@ if (typeof jQuery === 'undefined') {
         var defaults = {
             url: window.location.href,
             inputClass: 'form-control input-sm',
-            maxlength: 6,
             toolbarClass: 'btn-toolbar',
             groupClass: 'btn-group btn-group-sm',
             dangerClass: 'danger',
@@ -41,6 +40,7 @@ if (typeof jQuery === 'undefined') {
             deleteButton: true,
             saveButton: true,
             restoreButton: true,
+            action: '',
             buttons: {
                 edit: {
                     class: 'btn btn-sm btn-default',
@@ -123,7 +123,7 @@ if (typeof jQuery === 'undefined') {
                             var span = '<span class="tabledit-span">' + text + '</span>';
 
                             // Check if exists the third parameter of editable array.
-                            if (typeof settings.columns.editable[i][2] !== 'undefined') {
+                            /*if (typeof settings.columns.editable[i][2] !== 'undefined') {
                                 // Create select element.
                                 var input = '<select class="tabledit-input ' + settings.inputClass + '" name="' + settings.columns.editable[i][1] + '" style="display: none;" disabled>';
 
@@ -138,10 +138,10 @@ if (typeof jQuery === 'undefined') {
 
                                 // Create last piece of select element.
                                 input += '</select>';
-                            } else {
+                            } else {*/
                                 // Create text input element.
-                                var input = '<input class="tabledit-input ' + settings.inputClass + '" maxlength="' + settings.maxlength + '" type="text" name="' + settings.columns.editable[i][1] + '" value="' + $(this).text() + '" style="display: none;" disabled>';
-                            }
+                                var input = '<input class="tabledit-input ' + settings.columns.editable[i][3] + '" maxlength="' + settings.columns.editable[i][2] + '" type="text" name="' + settings.columns.editable[i][1] + '" value="' + $(this).text() + '" style="display: none;" disabled>';
+                            /*}*/
 
                             // Add elements and class "view" to table cell.
                             $(this).html(span + input);
@@ -156,10 +156,9 @@ if (typeof jQuery === 'undefined') {
                         var saveButton = '';
                         var restoreButton = '';
                         var confirmButton = '';
-
                         // Add toolbar column header if not exists.
                         if ($table.find('th.tabledit-toolbar-column').length === 0) {
-                            $table.find('tr:first').append('<th class="tabledit-toolbar-column"></th>');
+                            $table.find('tr:first').append('<th class="tabledit-toolbar-column">'+ settings.action +'</th>');
                         }
 
                         // Create edit button.
@@ -179,9 +178,9 @@ if (typeof jQuery === 'undefined') {
                         }
 
                         // Create restore button.
-                        if (settings.deleteButton && settings.restoreButton) {
+                        /*if (settings.deleteButton && settings.restoreButton) {
                             restoreButton = '<button type="button" class="tabledit-restore-button ' + settings.buttons.restore.class + '" style="display: none; float: none;">' + settings.buttons.restore.html + '</button>';
-                        }
+                        }*/
 
                         var toolbar = '<div class="tabledit-toolbar ' + settings.toolbarClass + '" style="text-align: left;">\n\
                                            <div class="' + settings.groupClass + '" style="float: none;">' + editButton + deleteButton + '</div>\n\
@@ -326,7 +325,7 @@ if (typeof jQuery === 'undefined') {
                 // Hide table row.
                 $(td).parent('tr').addClass(settings.mutedClass).find('.tabledit-toolbar button:not(.tabledit-restore-button)').attr('disabled', true);
                 // Show restore button.
-                $(td).find('.tabledit-restore-button').show();
+                //$(td).find('.tabledit-restore-button').show();
                 // Set last deleted row.
                 $lastDeletedRow = $(td).parent('tr');
             },
@@ -381,10 +380,10 @@ if (typeof jQuery === 'undefined') {
             var jqXHR = $.post(settings.url, serialize, function(data, textStatus, jqXHR) {
                 if (action === settings.buttons.edit.action) {
                     $lastEditedRow.removeClass(settings.dangerClass).addClass(settings.warningClass);
-                    setTimeout(function() {
+                    /*setTimeout(function() {
                         //$lastEditedRow.removeClass(settings.warningClass);
                         $table.find('tr.' + settings.warningClass).removeClass(settings.warningClass);
-                    }, 1400);
+                    }, 1400);*/
                 }
 
                 settings.onSuccess(data, textStatus, jqXHR);

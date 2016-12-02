@@ -46,8 +46,8 @@ class ProductRequest extends Request {
 			'txtPriceOld.numeric' => 'Giá tiền không hợp lệ',
 			'txtPriceOld.min' => 'Giá tối thiểu là 0 đồng',
 			'fImages.required' => 'Vui lòng nhập ảnh hiển thị',
-			'tags.required' => 'Vui lòng nhập keywords',	
-			'txtMake.required' => 'Vui lòng nhập keywords',	
+			'tags.required' => 'Vui lòng nhập thẻ',	
+			'txtMake.required' => 'Vui lòng nhập nhà sản xuất',	
 			'txtDescription.required' => 'Vui lòng nhập mô tả',	
 		];
 	}

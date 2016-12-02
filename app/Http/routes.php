@@ -88,6 +88,8 @@
 			Route::get('delete/{id?}', ['as' => 'admin.post.getDelete', 'uses' => 'PostController@getDelete']);
 			Route::get('edit/{id?}', ['as' => 'admin.post.getEdit', 'uses' => 'PostController@getEdit']);
 			Route::post('edit/{id?}', ['as' => 'admin.post.postEdit', 'uses' => 'PostController@postEdit']);
+			Route::post('action', ['as' => 'admin.post.postAction', 'uses' => 'PostController@postAction']);
+
 		});
 
 		Route::group(['prefix' => 'product'], function () {
@@ -98,6 +100,7 @@
 			Route::get('edit/{id?}', ['as' => 'admin.product.getEdit', 'uses' => 'ProductController@getEdit']);
 			Route::post('edit/{id?}', ['as' => 'admin.product.postEdit', 'uses' => 'ProductController@postEdit']);
 			Route::get('delimg/{id?}', ['as' => 'admin.product.delImg', 'uses' => 'ProductController@getDelImg']);
+			Route::post('action', ['as' => 'admin.product.postAction', 'uses' => 'ProductController@postAction']);
 		});
 		Route::group(['prefix' => 'cate'], function () {
 			Route::get('list', ['as' => 'admin.cate.list', 'uses' => 'CateController@getList']);

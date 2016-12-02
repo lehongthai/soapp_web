@@ -4,8 +4,18 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
+	config.extraPlugins = 'youtube';
+	config.toolbar = [{ name: 'insert', items: ['Image', 'Youtube']}];
 	config.height = 400;
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+	config.youtube_width = '640';
+	config.youtube_height = '480';
+
+	config.youtube_related = true;		
+
+	config.youtube_older = false;
+	config.youtube_privacy = false;
+
 };
