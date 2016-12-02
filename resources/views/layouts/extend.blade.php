@@ -1065,7 +1065,7 @@
   js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
   fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
-  <style>#cfacebook{position:fixed;bottom:0px;left:100px;z-index:999999999999999;width:250px;height:auto;box-shadow:6px 6px 6px 10px rgba(0,0,0,0.2);border-top-left-radius:5px;border-top-right-radius:5px;overflow:hidden;}#cfacebook .fchat{float:left;width:100%;height:270px;overflow:hidden;display:none;background-color:#fff;}#cfacebook .fchat .fb-page{margin-top:-130px;float:left;}#cfacebook a.chat_fb{float:left;padding:0 25px;width:250px;color:#fff;text-decoration:none;height:40px;line-height:40px;text-shadow:0 1px 0 rgba(0,0,0,0.1);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);background-repeat:repeat-x;background-size:auto;background-position:0 0;background-color:#3a5795;border:0;border-bottom:1px solid #133783;z-index:9999999;margin-right:12px;font-size:18px;}#cfacebook a.chat_fb:hover{color:yellow;text-decoration:none;}</style>
+  <style>#cfacebook{position:fixed;bottom:20px;left:100px;z-index:999999999999999;width:250px;height:auto;box-shadow:6px 6px 6px 10px rgba(0,0,0,0.2);border-top-left-radius:5px;border-top-right-radius:5px;overflow:hidden;}#cfacebook .fchat{float:left;width:100%;height:270px;overflow:hidden;display:none;background-color:#fff;}#cfacebook .fchat .fb-page{margin-top:-130px;float:left;}#cfacebook a.chat_fb{float:left;padding:0 25px;width:250px;color:#fff;text-decoration:none;height:40px;line-height:40px;text-shadow:0 1px 0 rgba(0,0,0,0.1);background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAqCAMAAABFoMFOAAAAWlBMV…8/UxBxQDQuFwlpqgBZBq6+P+unVY1GnDgwqbD2zGz5e1lBdwvGGPE6OgAAAABJRU5ErkJggg==);background-repeat:repeat-x;background-size:auto;background-position:0 0;background-color:#3a5795;border:0;border-bottom:1px solid #133783;z-index:9999999;margin-right:12px;font-size:18px;}#cfacebook a.chat_fb:hover{color:yellow;text-decoration:none;}</style>
   <script>
   jQuery(document).ready(function () {
   jQuery(".chat_fb").click(function() {
@@ -1106,7 +1106,7 @@ jQuery('.fchat').toggle('slow');
                                     <img src="http://dochoitinhducshop.com/main_img.jpg" alt="Image" >
                                 </div>
                                 <div class="col_half nobottommargin col_last" style="padding-top: 20px">
-                                    <p> Đừng bỏ lỡ cơ hội mua hàng để được <strong>ƯU ĐÃI </strong> đến 5% duy nhất trong năm nay! <strong>SEXTOY GIÁ GỐC </strong>luôn cam kết đem đến cho khách hàng thân yêu những sản phẩm tốt nhất, chất lượng tuyệt vời nhất và giá cả hợp lý nhất. Hãy ghé thăm website : <a href="index.html" target="_blank"><strong>SEXTOY GIÁ GỐC</strong></a> để thoả sức mua sắm..!</p>
+                                    <p> Đừng bỏ lỡ cơ hội mua hàng để được <strong>ƯU ĐÃI </strong> đến 5% duy nhất trong năm nay! <strong>SEXTOY GIÁ GỐC </strong>luôn cam kết đem đến cho khách hàng thân yêu những sản phẩm tốt nhất, chất lượng tuyệt vời nhất và giá cả hợp lý nhất. Hãy ghé thăm website : <a href="{{url('')}}" target="_blank"><strong>SEXTOY GIÁ GỐC</strong></a> để thoả sức mua sắm..!</p>
 
                                     <div id="widget-subscribe-form3-result" data-notify-type="success" data-notify-msg=""></div>
                                     <form accept-charset="UTF-8" id="widget-subscribe-form3" role="form" >
@@ -1182,7 +1182,7 @@ if(isAdd==0)
 <style type="text/css">
     #callPhone{
         position: fixed;
-        bottom: 0px;
+        bottom: 20px;
         left: 3px;
         z-index: 110000;
     }
