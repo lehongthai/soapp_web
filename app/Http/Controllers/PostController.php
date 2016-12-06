@@ -97,8 +97,8 @@ class PostController extends Controller {
 	{
 
 		$listTagsOld = array();
-		
-		foreach ($request->tags as $tag) {
+		if($request->tags != NULL){
+			foreach ($request->tags as $tag) {
 				if (array_key_exists($tag, Post::getListTags())) {
 					array_push($listTagsOld, $tag);
 				}else{
@@ -107,6 +107,7 @@ class PostController extends Controller {
 					$dbTags->save();
 					array_push($listTagsOld, $dbTags->id);
 				}
+			}
 		}
 
 		$id = $request->id;
