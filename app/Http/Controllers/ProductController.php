@@ -35,26 +35,30 @@ class ProductController extends Controller {
 	public function postAdd(ProductRequest $request)
 	{
 		$listTagsOld = array();
-		foreach ($request->tags as $tag) {
-			if (array_key_exists($tag, Product::getListTags())) {
-				array_push($listTagsOld, $tag);
-			}else{
-				$dbTags = new Tags();
-				$dbTags->name = $tag;
-				$dbTags->save();
-				array_push($listTagsOld, $dbTags->id);
+		if ($request->tags != NULL) {
+			foreach ($request->tags as $tag) {
+				if (array_key_exists($tag, Product::getListTags())) {
+					array_push($listTagsOld, $tag);
+				}else{
+					$dbTags = new Tags();
+					$dbTags->name = $tag;
+					$dbTags->save();
+					array_push($listTagsOld, $dbTags->id);
+				}
 			}
 		}
 
 		$listManufacturerOld = array();
-		foreach ($request->txtMake as $manufacturer) {
-			if (array_key_exists($manufacturer, Product::getListManufacturer())) {
-				array_push($listManufacturerOld, $manufacturer);
-			}else{
-				$dbManufacturer = new Manufacturer();
-				$dbManufacturer->name = $manufacturer;
-				$dbManufacturer->save();
-				array_push($listManufacturerOld, $dbTags->id);
+		if ($request->txtMake != NULL) {
+			foreach ($request->txtMake as $manufacturer) {
+				if (array_key_exists($manufacturer, Product::getListManufacturer())) {
+					array_push($listManufacturerOld, $manufacturer);
+				}else{
+					$dbManufacturer = new Manufacturer();
+					$dbManufacturer->name = $manufacturer;
+					$dbManufacturer->save();
+					array_push($listManufacturerOld, $dbTags->id);
+				}
 			}
 		}
 		
@@ -157,8 +161,8 @@ class ProductController extends Controller {
 	public function postEdit(Request $request)
 	{
 		$listTagsOld = array();
-		
-		foreach (Request::input('tags') as $tag) {
+		if (Request::input('tags') != NULL) {
+			foreach (Request::input('tags') as $tag) {
 				if (array_key_exists($tag, Product::getListTags())) {
 					array_push($listTagsOld, $tag);
 				}else{
@@ -167,6 +171,7 @@ class ProductController extends Controller {
 					$dbTags->save();
 					array_push($listTagsOld, $dbTags->id);
 				}
+			}
 		}
 
 		$listManufacturerOld = array();
