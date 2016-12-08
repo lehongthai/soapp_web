@@ -183,7 +183,7 @@ class ProductController extends Controller {
 					$dbManufacturer = new Manufacturer();
 					$dbManufacturer->name = $manufacturer;
 					$dbManufacturer->save();
-					array_push($listManufacturerOld, $dbTags->id);
+					array_push($listManufacturerOld, $dbManufacturer->id);
 				}
 			}
 		}
