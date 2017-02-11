@@ -1085,53 +1085,7 @@ jQuery('.fchat').toggle('slow');
             }
         </style>
         <!-- open popup -->
-        <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <div class="heading-block topmargin-lg">
-                                        <h3><strong>TƯNG BỪNG MUA SẮM !</strong></h3>
-                                        <span>Đăng kí để nhận ưu đãi lên đến 5% hôm nay!</span>
-                                    </div>
-      </div>
-      <div class="modal-body">
-        <div class="control-group">
-         <div class="row">
-           <div class="col-md-12">
-             <div class="container clearfix">
-
-                                <div style="margin-right: 4%; margin-bottom: 50px; float: left; width: 48%;">
-                                    <img src="http://dochoitinhducshop.com/main_img.jpg" alt="Image" >
-                                </div>
-                                <div class="col_half nobottommargin col_last" style="padding-top: 20px">
-                                    <p> Đừng bỏ lỡ cơ hội mua hàng để được <strong>ƯU ĐÃI </strong> đến 5% duy nhất trong năm nay! <strong>SEXTOY GIÁ GỐC </strong>luôn cam kết đem đến cho khách hàng thân yêu những sản phẩm tốt nhất, chất lượng tuyệt vời nhất và giá cả hợp lý nhất. Hãy ghé thăm website : <a href="{{url('')}}" target="_blank"><strong>SEXTOY GIÁ GỐC</strong></a> để thoả sức mua sắm..!</p>
-
-                                    <div id="widget-subscribe-form3-result" data-notify-type="success" data-notify-msg=""></div>
-                                    <form accept-charset="UTF-8" id="widget-subscribe-form3" role="form" >
-                                        <div class="input-group" style="max-width:400px;">
-                                            <span class="input-group-addon"><i class="icon-email2"></i></span>
-                                            <input name="form_type" type="hidden" value="customer">
-                                            <input name="utf8" type="hidden" value="✓">
-                                            <input type="email" name="contact" id='newsletter-email-1' class="form-control required email" placeholder="Nhập email của bạn">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-danger btnSignup-2" type="button" onclick="getMail();" data-toggle="modal" data-target="#myModal">Đăng ký</button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                    
-                                </div>
-                            </div>
-           </div>
-         </div>
-         
-        <br/>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+@include('layouts.modal')
 <!-- Modal -->
 <div id="myModal2" class="modal fade" role="dialog">
   <div class="modal-dialog">

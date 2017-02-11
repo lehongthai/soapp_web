@@ -92,6 +92,17 @@
 
 		});
 
+		Route::group(['prefix' => 'modal'], function () {
+			Route::get('list', ['as' => 'admin.modal.list', 'uses' => 'ModalController@getList']);
+			Route::get('add', ['as' => 'admin.modal.getAdd', 'uses' => 'ModalController@getAdd']);
+			Route::post('add', ['as' => 'admin.modal.postAdd', 'uses' => 'ModalController@postAdd']);
+			Route::get('delete/{id?}', ['as' => 'admin.modal.getDelete', 'uses' => 'ModalController@getDelete']);
+			Route::get('edit/{id?}', ['as' => 'admin.modal.getEdit', 'uses' => 'ModalController@getEdit']);
+			Route::post('edit/{id?}', ['as' => 'admin.modal.postEdit', 'uses' => 'ModalController@postEdit']);
+			Route::post('action', ['as' => 'admin.modal.postAction', 'uses' => 'ModalController@postAction']);
+
+		});
+
 		Route::group(['prefix' => 'product'], function () {
 			Route::get('list', ['as' => 'admin.product.list', 'uses' => 'ProductController@getList']);
 			Route::get('add', ['as' => 'admin.product.getAdd', 'uses' => 'ProductController@getAdd']);

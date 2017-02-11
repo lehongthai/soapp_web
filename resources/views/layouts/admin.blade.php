@@ -170,6 +170,18 @@
                             <!-- /.child_menu -->
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-drivers-license"></i>Thông báo<span class="fa arrow"></span></a>
+                            <ul class="nav child_menu">
+                                <li>
+                                    <a href="{!! URL::route('admin.modal.list') !!}">Danh sách</a>
+                                </li>
+                                <li>
+                                    <a href="{!! URL::route('admin.modal.getAdd') !!}">Thêm mới</a>
+                                </li>
+                            </ul>
+                            <!-- /.child_menu -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-address-book-o"></i>Thông tin khách hàng<span class="fa arrow"></span></a>
                             <ul class="nav child_menu">
                                 <li>

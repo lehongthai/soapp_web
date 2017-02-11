@@ -21,7 +21,7 @@ Giới thiệu
             <!-- Entry Title
             ============================================= -->
             <div class="entry-title">
-              <h1>Giới thiệu</h1>
+              <h1>{!! $post->title !!}</h1>
             </div><!-- .entry-title end -->
 
             <!-- Entry Meta
@@ -41,7 +41,7 @@ Giới thiệu
             <!-- Entry Content
             ============================================= -->
             <div class="entry-content notopmargin">
-
+            <h2>{!! $post->intro !!}</h2>
               <?php echo($post->content) ?>
 
               <!-- Post Single - Content End -->

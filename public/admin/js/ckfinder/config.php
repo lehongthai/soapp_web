@@ -60,7 +60,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = "http://localhost:8080/LeThai/Laravel/soapp_web/public/upload/";
+$baseUrl = "http://localhost/LeThai/Laravel/caythong/public/upload/";
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the
