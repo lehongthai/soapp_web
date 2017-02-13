@@ -75,7 +75,7 @@ Giới thiệu
 					<!-- recent article -->
 
 					<div class="widget clearfix">
-						<h4 style="margin-bottom:10px;"><a href="">Bài viết mới nhất</a></h4>
+						<h4 style="margin-bottom:10px;"><a href="{!! url('bai-viet') !!}">Bài viết mới nhất</a></h4>
 
 						<div class="tab-container">
 						<?php 
